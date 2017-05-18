@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="template :: head"></head>
+<body>
+	<header th:replace="template :: header"></header>
+	<div class="container">
+		<H1>Articles</H1>
+		
+		<form  class="form-inline" th:action="@{/Admin/Article/AjouterArticle}" method="GET">
+				 	<button type="submit" class="btn btn-sm btn-success">Ajouter un article</button>	
+		</form>	
+		<table class="table table-striped ">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Titre</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="p:${articles}">
+						<td th:text="${p.id}"></td>
+						<td th:text="${p.titre}"></td>
+						<td style="width: 175px;">
+						<a class="btn btn-danger" th:href="@{SupprimerArticle(id=${p.id})}">Supprimer</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+	</div>
+	<footer th:replace="template :: footer"></footer>
+</body>
+</html>

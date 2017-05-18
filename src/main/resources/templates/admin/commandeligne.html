@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="template :: head"></head>
+<body>
+	<header th:replace="template :: header"></header>
+	<div class="container spacer">
+	<a href="/Admin/Commande/Index">retour</a>
+	<h2>Commande # <span th:text="${commande.id}"></span></h2>
+	<p th:text="${commande.utilisateur.nom}+' '+${commande.utilisateur.prenom}"></p>
+	
+	<ul th:if="${commande.confection == null}" class="list-group">
+	  	<li class="list-group-item" th:each="p:${commande.lignes}"><span class="badge" th:text="${p.quantite}"></span> <p th:text="${p.produit.nom}"> </p></li>
+	  	<li class="list-group-item" ><span class="badge" th:text="${commande.total}"></span> <p>Montant Total </p></li>
+	  	
+	</ul>
+	<ul th:if="${commande.confection != null and commande.confection.type == 'Panier' }" class="list-group">
+		<li class="list-group-item"><span class="badge" th:text="${commande.confection.identique} ?'identique':'différent'"></span><p>Type de panier</p></li>
+		<li class="list-group-item"><span class="badge" th:text="${commande.confection.nbPanier}+' panier(s)'"></span><p>Nombre de panier</p></li>
+		<li class="list-group-item"><span class="badge"  th:text="${commande.confection.montant}+' €'"></span><p>Prix du panier  </p></li>
+	</ul>
+	<ul th:if="${commande.confection != null and commande.confection.type == 'Plateau'}" class="list-group">
+		<li class="list-group-item"><span class="badge"  th:text="${commande.confection.nbPers}+' pers'"></span><p>Nombre de personnes </p></li>
+		<li class="list-group-item" th:if="${commande.confection.note != ''}" >
+			<p>Information supplémentaire : </p>
+			<p th:text="${commande.confection.note}"></p>	
+		</li>
+		<li class="list-group-item"><span class="badge"  th:text="${commande.confection.montant}+' €'"></span><p>Montant  </p></li>
+<!-- 	  		<li class="list-group-item" th:text="${commande.confection.type_plateau}"></li> -->
+	</ul>
+	</div>
+	<footer th:replace="template :: footer"></footer>
+</body>
+</html>

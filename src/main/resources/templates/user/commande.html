@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="template :: head"></head>
+<body>
+	<header th:replace="template :: header"></header>
+	<div class="container">
+		<h1>Commandes</h1>
+		<div class="col-xs-12" th:if="${commandesEnAttente == null}">
+			<p>Aucune Commandes n'est prévues</p>
+		</div>
+		<div class="col-xs-12" th:if="${commandesEnAttente != null}">
+		<h3>Commandes en attente</h3>
+			<table class="table table-striped ">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Date</th>
+						<th>Type</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="p:${commandesEnAttente}">
+						<td class="col-xs-1" th:text="${p.id}"></td>
+						<td th:text="${#dates.format(p.commande_prevu_pour, 'dd-MMM-yyyy à h:m')}"></td>
+						<td th:if="${p.confection != null}" th:text=" ${#strings.substring(p.confection.class,27,#strings.length(p.confection.class))}"></td>
+						<td th:if="${p.confection == null}">Simple</td>
+						<td>
+						<a class="btn btn-default" th:href="@{Visualiser(id=${p.id})}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="col-xs-12" th:if="${commandesTerminee != null}">
+		<h3>Commandes en terminée</h3>
+			<table class="table table-striped ">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Date</th>
+						<th>Type</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="p:${commandesTerminee}">
+						<td class="col-xs-1" th:text="${p.id}"></td>
+						<td th:text="${#dates.format(p.commande_prevu_pour, 'dd-MMM-yyyy à h:m')}"></td>
+						<td th:if="${p.confection != null}" th:text=" ${#strings.substring(p.confection.class,27,#strings.length(p.confection.class))}"></td>
+						<td th:if="${p.confection == null}">Simple</td>
+						<td>
+						<a class="btn btn-default" th:href="@{Visualiser(id=${p.id})}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<footer th:replace="template :: footer"></footer>
+</body>
+</html>

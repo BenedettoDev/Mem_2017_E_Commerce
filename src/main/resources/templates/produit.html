@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css"
+	href="../static/css/bootstrap.min.css"
+	th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css" href="../static/css/myStyle.css"
+	th:href="@{/css/myStyle.css}" />
+</head>
+<body>
+	<header th:replace="template :: header"></header>
+	<div class="container container-produits">
+	<div class="spacer"></div>
+		<div class="row produits">
+
+		<h1 th:text="${titre}"></h1>
+		<div class="col-xs-12 col-md-3 col-md-offset-9" style="margin-bottom: 10px;">
+			<form class="form-inline form-motCle" th:action="@{Index}" method="get">
+			<div class="row">
+			    <div class="input-group">
+			     <input type="text" class="form-control"	name="motCle" th:value="${motCle}" />
+			      <span class="input-group-btn">
+			       <button class="btn btn-primary" type="submit">Chercher</button>
+			      </span>
+			    </div><!-- /input-group -->
+			</div><!-- /.row -->
+			</form>
+		</div>
+		<div class="row liste-produit-panel-categorie">
+				<button class="btn btn-categorie" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+				  Rechercher par catégorie
+				</button>
+				<div class="collapse panel-categorie" id="collapseExample">
+				  <div class="well">
+				    <ul class="categorie-liste" >
+						<li th:each="cat:${categories}"><a th:href="@{Index(cat=${cat.nom})}" th:text="${cat.nom}"></a></li>
+					</ul>
+				  </div>
+				</div>
+		</div>
+		
+		<div class="row liste-produits">
+			<div class="col-xs-6 col-md-2" th:each="p:${pageProduits.content}" onclick="javascript:location.href=@{Index(id=${p.id})}">
+				<div class="thumbnail">
+					<img class="img-responsive produit-list" th:src="@{getPhoto(id=${p.id})}" alt="test" />
+					<div class="caption">
+						<a  class="titre-liste-produit" th:href="@{Index(id=${p.id})}"  th:text="${p.nom}"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row liste-produits">
+			<div class="col-xs-12" >
+				<ul class="nav nav-pills">
+					<li th:each="pa:${pages}" th:class="${pa==pageCourante}?active:''">
+						<a th:text="${pa}" th:href="@{Index(page=${pa},motCle=${motCle})}"></a>
+					</li>
+				</ul>
+	
+			</div>
+		</div>
+		<div th:if="${preparation.size()!=0}" class="row liste-produits liste-produits-panel">
+			<h4>Nos préparations</h4><hr/>
+			<div class="col-xs-6 col-md-2" th:each="p:${preparation}" onclick="javascript:location.href=@{Index(id=${p.id})}">
+				<div class="thumbnail">
+					<img class="img-responsive produit-list" th:src="@{getPhoto(id=${p.id})}" alt="test" />
+					<div class="caption">
+						<a  class="titre-liste-produit" th:href="@{Index(id=${p.id})}"  th:text="${p.nom}"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div th:if="${suggestion.size()!=0}" class="row liste-produits liste-produits-panel">
+			<h4>Nos suggestions</h4><hr/>
+			<div class="col-xs-6 col-md-2" th:each="p:${suggestion}" onclick="javascript:location.href=@{Index(id=${p.id})}">
+				<div class="thumbnail">
+					<img class="img-responsive produit-list" th:src="@{getPhoto(id=${p.id})}" alt="test" />
+					<div class="caption">
+						<a  class="titre-liste-produit" th:href="@{Index(id=${p.id})}"  th:text="${p.nom}"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div th:if="${derniersProduits.size()!=0}" class="row liste-produits liste-produits-panel">
+			<h4>Derniers produits ajoutés</h4><hr/>
+			<div class="col-xs-6 col-md-2" th:each="p:${derniersProduits}" onclick="javascript:location.href=@{Index(id=${p.id})}">
+				<div class="thumbnail">
+					<img class="img-responsive produit-list" th:src="@{getPhoto(id=${p.id})}" alt="test" />
+					<div class="caption">
+						<a  class="titre-liste-produit" th:href="@{Index(id=${p.id})}"  th:text="${p.nom}"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</div>
+	<footer th:replace="template :: footer"></footer>
+</body>
+</html>

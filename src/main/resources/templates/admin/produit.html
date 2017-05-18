@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="template :: head"></head>
+<body>
+	<header th:replace="template :: header"></header>
+	<div class="container spacer">
+		<div th:replace="template :: adminNav"></div>
+		<h1 th:text="${titre}"></h1>
+		<div class="col-md-6 col-lg-4  col-md-offset-6 col-lg-offset-8">
+			<form class="form-inline" th:action="@{Index}" method="get">
+				<div class="form-group">
+					<label>Mot Clé :</label> <input type="text" class="form-control"
+						name="motCle" th:value="${motCle}" />
+					<button class="btn btn-primary" type="submit">Chercher</button>
+				</div>
+			</form>
+			<br />
+		</div>
+
+
+		<div class="col-xs-12">
+			<button class="btn btn-success" onclick="location.href='Form'">Ajouter un produit</button>
+			<button class="btn btn-success" onclick="location.href='GestionLieu'">Gestion Lieu</button>
+			<button class="btn btn-success" onclick="location.href='GestionCategorie'">Gestion categorie</button>
+			<button class="btn btn-success" onclick="location.href='GestionAllergene'">Gestion Allergenes</button>
+			
+			<table class="table table-striped ">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Label</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="p:${pageProduits.content}">
+						<td th:text="${p.id}"></td>
+						<td th:text="${p.label}"></td>
+						<td style="width: 175px;"><a class="btn btn-primary"
+							th:href="@{Editer(id=${p.id})}">Editer</a> <a
+							class="btn btn-danger" th:href="@{SupprimerProduit(id=${p.id})}">Supprimer</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<ul class="nav nav-pills">
+				<li th:each="pa:${pages}" th:class="${pa==pageCourante}?active:''">
+					<a th:text="${pa}" th:href="@{Index(page=${pa},motCle=${motCle})}"></a>
+				</li>
+			</ul>
+
+		</div>
+	</div>
+	<footer th:replace="template :: footer"></footer>
+</body>
+</html>

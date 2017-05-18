@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="template :: head"></head>
+<body>
+	<header th:replace="template :: header"></header>
+	<div class="container container-single-produit">
+		<div class="spacer"></div>
+		<div class="row single-produit">
+			<div class="col-xs-12 col-sm-6 col-image">
+				<img class="img-responsive image-single-produit" th:src="@{getPhoto(id=${produit.id})}" alt="test" />
+				
+				<h1 class="single-page-titre-mobile"  th:text="${produit.nom}"></h1>
+				<button type="button" class="btn btn-success" onclick="location.href=''">
+				<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+				</button>			
+					
+			</div>
+			<div class="col-xs-12 col-sm-6 col-text-produit">
+				<div class="single-page-titre">
+				<h1 class="single-page-titre" th:text="${produit.nom}"></h1>
+				</div>
+				<div class="description">
+				<p th:text="${produit.description}"></p>
+				</div>
+				<div class="detail-produit">
+				<div class="lieu">
+					<p>Lieu : <span th:text="${produit.lieu.nom}"></span></p>
+				</div>
+				<div class="categorie">
+				<p>Categorie : <span th:text="${produit.categorie.nom}"></span></p>
+				</div>	
+				
+				<p>Prix :<span th:text="${produit.prix}+' €/'+${produit.unite}"></span></p>
+				</div>
+				<div  class="allergene" th:if="${not #lists.isEmpty(produit.allergenes)}">
+				<p>Allergènes :</p>
+				<ul>
+					<li th:each="al : ${produit.allergenes}"><p th:text="${al.nom}"></p></li>
+				</ul>
+				</div>
+				
+				 <div class="from-ajout-panier" sec:authorize="hasRole('ROLE_USER')">
+				 <form  class="form-inline" th:action="@{/User/Commande/ajouterProduit}" method="post" th:object="${ligne}">
+				  <div class="form-group">
+				  				 	<select class="form-control">
+					  <option>En tranche ou en morceau</option>
+					  <option>En tranche</option>
+					  <option>En morceau</option>
+					</select>
+				    <div class="input-group">
+				 	<input type="hidden" name="produit.id" class="form-control" th:value="${produit.id}" />
+
+				 	<input type="text" name="quantite" class="form-control" />
+				 	 <div class="input-group-addon">g</div>
+				 	 </div>
+				 	 </div>
+				 	<button type="submit" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></button>	
+				</form>	
+				
+				</div>	
+				<div class="form-suggestion" sec:authorize="hasRole('ROLE_ADMIN')">
+				 <form  class="form-inline" th:action="@{/Admin/Suggestion/produitASuggerer}" method="post" th:object="${produit}">
+				 	<input type="hidden" name="id" class="form-control" th:value="${produit.id}" />
+				 	<button type="submit" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Suggérer ce produit</button>	
+				</form>	
+				
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer th:replace="template :: footer"></footer>
+</body>
+</html>

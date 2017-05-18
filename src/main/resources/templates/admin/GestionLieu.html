@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css"
+	href="../../static/css/bootstrap.min.css"
+	th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css"
+	href="../../static/css/myStyle.css" th:href="@{/css/myStyle.css}" />
+</head>
+<body>
+
+	<header th:replace="template :: header"></header>
+	<div th:replace="template :: adminNav"></div>
+	<div class="container spacer">
+			<div class="col-sm-4 col-sm-offset-8 spacer">
+			<div class="panel panel-default ">
+				<div class="panel-heading">Ajout d'un lieu</div>
+				<div class="panel-body">
+					<form th:action="@{SaveLieu}" method="post"
+						th:object="${lieu}">
+						<div class="row">
+							<div class="col-xs-12  form-group">
+								<label class="control-label">Nom</label> <input type="text"
+									th:field="*{nom}" class="form-control" /> <span
+									class="text-danger" th:errors="*{nom}"></span>
+							</div>
+						</div>
+						<button type="submit" class="btn btn-primary pull-right">Submit</button>
+					</form>
+				</div>
+		</div>
+	</div>
+	<div class="row">
+		<table class="table table-striped ">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Nom</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="p:${listeLieu}">
+						<td th:text="${p.id}"></td>
+						<td th:text="${p.nom}"></td>
+						<td style="width: 175px;"><a class="btn btn-primary"
+							th:href="@{Editer(id=${p.id})}">Editer</a> <a
+							class="btn btn-danger" th:href="@{SupprimerLieu(id=${p.id})}">Supprimer</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+	</div>
+	</div>
+	<footer th:replace="template :: footer"></footer>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

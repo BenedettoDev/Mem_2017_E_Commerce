@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css"
+	href="../static/css/bootstrap.min.css"
+	th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css" href="../static/css/myStyle.css"
+	th:href="@{/css/myStyle.css}" />
+</head>
+<body>
+	<header th:replace="template :: header"></header>
+<div class="container container-commande">
+	<div class="spacer"></div>
+		<div class="row row-commande">
+		<h1>Commande</h1>
+			<div class="col-xs-12">
+				<div class="aligner">
+				<ul>
+					<li ><a th:style="'background:url(' + @{/img/commande/plateau.jpg} + ')  no-repeat right bottom;background-size: 222px auto;'" th:href="@{/Commande/commanderPlateau}">Plateau</a></li>
+					<li><a th:style="'background:url(' + @{/img/commande/panier.jpg} + ')  no-repeat right bottom;background-size: 222px auto;'"  th:href="@{/Commande/commanderPanier}">Panier</a></li>
+				</ul>
+				</div>
+			</div>
+		
+		<div th:if="${plateau != null}">
+			<h2>plateau</h2>
+			
+	
+		<div class="col-xs-12 col-md-6">
+				<p>Haec et huius modi quaedam innumerabilia ultrix facinorum
+					impiorum bonorumque praemiatrix aliquotiens operatur Adrastia atque
+					utinam semper quam vocabulo duplici etiam Nemesim appellamus: ius
+					quoddam sublime numinis efficacis, humanarum mentium opinione lunari
+					circulo superpositum, vel ut definiunt alii, substantialis tutela
+					generali potentia partilibus praesidens fatis, quam theologi veteres
+					fingentes Iustitiae filiam ex abdita quadam aeternitate tradunt
+					omnia despectare terrena.</p>
+				<p>Non ergo erunt homines deliciis diffluentes audiendi, si
+					quando de amicitia, quam nec usu nec ratione habent cognitam,
+					disputabunt. Nam quis est, pro deorum fidem atque hominum! qui
+					velit, ut neque diligat quemquam nec ipse ab ullo diligatur,
+					circumfluere omnibus copiis atque in omnium rerum abundantia vivere?
+					Haec enim est tyrannorum vita nimirum, in qua nulla fides, nulla
+					caritas, nulla stabilis benevolentiae potest esse fiducia, omnia
+					semper suspecta atque sollicita, nullus locus amicitiae.</p>
+				<p>Accedat huc suavitas quaedam oportet sermonum atque morum,
+					haudquaquam mediocre condimentum amicitiae. Tristitia autem et in
+					omni re severitas habet illa quidem gravitatem, sed amicitia
+					remissior esse debet et liberior et dulcior et ad omnem comitatem
+					facilitatemque proclivior.</p>
+			</div>
+			<div class="col-xs-12 col-md-6">
+				<img class="img-responsive" th:src="@{/img/commande/plateau.jpg}"	alt="plateau" />
+			</div>
+			<div sec:authorize="hasRole('ROLE_USER')">
+				<form th:action="@{/User/Commande/commanderPlateau}" method="post"	th:object="${plateau}">
+					<input type="hidden" name="type" value="Plateau" />
+					<div class="form-group">
+						<label class="control-label">nbPers</label> <input type="text"
+							th:name="nbPers" class="form-control" /> <span class="text-danger"></span>
+					</div>
+					
+					<select name="typePlateauString" class="form-control">
+							   <option>Type de repas</option>
+						   <option th:each="state : ${T(net.mem.dao.entities.Plateau.TypePlateau).values()}"
+						          th:value="${state}"
+						          th:text="${state.name}">
+						   </option>
+						</select>
+					
+
+					<div class="form-group">
+						<label class="control-label">information supplémentaire :</label> 
+						<textarea name="note" class="form-control" rows="5"></textarea>
+					</div>
+					
+					<button type="submit" class="btn btn-primary">Commander Plateau</button>
+				</form>
+				
+			</div>
+
+
+		</div>
+		<div th:if="${panier != null}">
+			<h2>panier</h2>
+					
+			<div class="col-xs-12 col-md-6">
+				<p>Haec et huius modi quaedam innumerabilia ultrix facinorum
+					impiorum bonorumque praemiatrix aliquotiens operatur Adrastia atque
+					utinam semper quam vocabulo duplici etiam Nemesim appellamus: ius
+					quoddam sublime numinis efficacis, humanarum mentium opinione lunari
+					circulo superpositum, vel ut definiunt alii, substantialis tutela
+					generali potentia partilibus praesidens fatis, quam theologi veteres
+					fingentes Iustitiae filiam ex abdita quadam aeternitate tradunt
+					omnia despectare terrena.</p>
+				<p>Non ergo erunt homines deliciis diffluentes audiendi, si
+					quando de amicitia, quam nec usu nec ratione habent cognitam,
+					disputabunt. Nam quis est, pro deorum fidem atque hominum! qui
+					velit, ut neque diligat quemquam nec ipse ab ullo diligatur,
+					circumfluere omnibus copiis atque in omnium rerum abundantia vivere?
+					Haec enim est tyrannorum vita nimirum, in qua nulla fides, nulla
+					caritas, nulla stabilis benevolentiae potest esse fiducia, omnia
+					semper suspecta atque sollicita, nullus locus amicitiae.</p>
+				<p>Accedat huc suavitas quaedam oportet sermonum atque morum,
+					haudquaquam mediocre condimentum amicitiae. Tristitia autem et in
+					omni re severitas habet illa quidem gravitatem, sed amicitia
+					remissior esse debet et liberior et dulcior et ad omnem comitatem
+					facilitatemque proclivior.</p>
+			</div>
+			<div class="col-xs-12 col-md-6">
+				<img class="img-responsive" th:src="@{/img/commande/panier.jpg}"	alt="plateau" />
+			</div>
+	
+			<div sec:authorize="hasRole('ROLE_USER')">
+				<form th:action="@{/User/Commande/commanderPanier}" method="post"	th:object="${panier}">
+					<input type="hidden" name="type" value="Panier" />
+					<div class="form-group">
+						<label class="control-label">nbPanier</label> 
+						<input type="text" th:name="nbPanier" class="form-control" /> 
+					</div>
+					
+			
+					<div class="form-group">
+						<label class="control-label">Le panier doit avoir une valeure de :</label> 
+						<input type="text" th:name="montant" class="form-control" /> 
+					</div>
+					
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="identique" id="optionsRadios1" value="0" />
+					    Différent
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="identique" id="optionsRadios2" value="1" />
+					   	Identique
+					  </label>
+					</div>
+					
+					<button type="submit" class="btn btn-primary">Commander Plateau</button>
+				</form>
+				
+			</div>
+		</div>
+		</div>
+	</div>
+	<footer th:replace="template :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:fragment="head">
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css"
+	href="../static/css/bootstrap.min.css"
+	th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css" href="../static/css/myStyle.css"
+	th:href="@{/css/myStyle.css}" />
+</head>
+<body>
+	<header th:replace="template :: header"></header>
+	
+	<div class="site">
+	<div class="cover-bg">
+<!-- 		<h2 class="titre">Pata Negra</h2> -->
+			<img class="logo-home" src="img/home/logo.png" alt="logo" />
+		<div>
+			<a href="#contenu"><img src="img/home/arrow.png" alt="arrow" /></a>
+		</div>
+	</div>
+	<section id="contenu" class="container container-detail">
+		<div  class="case">
+			<div id="case-histoire">
+				<h2>
+					<a href="#histoire">Histoire</a>
+				</h2>
+			</div>
+			<div id="case-produits">
+				<h2>
+					<a href="#produits">Produits</a>
+				</h2>
+			</div>
+			<div id="case-preparation">
+				<h2>
+					<a href="#preparation">Préparation</a>
+				</h2>
+			</div>
+			<div id="case-articles">
+				<h2>
+					<a href="#articles">Article</a>
+				</h2>
+			</div>
+		</div>
+	</section>
+	<section id="histoire">
+		<h2 class="titre">Histoire</h2>
+	</section>
+	<section class="container container-detail">
+	<div class="col-xs-12 col-md-6">
+			<p>Haec et huius modi quaedam innumerabilia ultrix facinorum
+				impiorum bonorumque praemiatrix aliquotiens operatur Adrastia atque
+				utinam semper quam vocabulo duplici etiam Nemesim appellamus: ius
+				quoddam sublime numinis efficacis, humanarum mentium opinione lunari
+				circulo superpositum, vel ut definiunt alii, substantialis tutela
+				generali potentia partilibus praesidens fatis, quam theologi veteres
+				fingentes Iustitiae filiam ex abdita quadam aeternitate tradunt
+				omnia despectare terrena.</p>
+			<p>Non ergo erunt homines deliciis diffluentes audiendi, si
+				quando de amicitia, quam nec usu nec ratione habent cognitam,
+				disputabunt. Nam quis est, pro deorum fidem atque hominum! qui
+				velit, ut neque diligat quemquam nec ipse ab ullo diligatur,
+				circumfluere omnibus copiis atque in omnium rerum abundantia vivere?
+				Haec enim est tyrannorum vita nimirum, in qua nulla fides, nulla
+				caritas, nulla stabilis benevolentiae potest esse fiducia, omnia
+				semper suspecta atque sollicita, nullus locus amicitiae.</p>
+			<p>Accedat huc suavitas quaedam oportet sermonum atque morum,
+				haudquaquam mediocre condimentum amicitiae. Tristitia autem et in
+				omni re severitas habet illa quidem gravitatem, sed amicitia
+				remissior esse debet et liberior et dulcior et ad omnem comitatem
+				facilitatemque proclivior.</p>
+		</div>
+		<div class="col-xs-12 col-md-6">
+			<img class="img-responsive" src="img/home/histoire_img_1.jpg"
+				alt="histoire_img_1" />
+		</div>
+	</section>
+	<section id="produits">
+		<h2 class="titre">Produits</h2>
+	</section>
+	<section class="container container-detail spacer">
+		<div class="col-xs-12 col-md-6">
+			<p>Haec et huius modi quaedam innumerabilia ultrix facinorum
+				impiorum bonorumque praemiatrix aliquotiens operatur Adrastia atque
+				utinam semper quam vocabulo duplici etiam Nemesim appellamus: ius
+				quoddam sublime numinis efficacis, humanarum mentium opinione lunari
+				circulo superpositum, vel ut definiunt alii, substantialis tutela
+				generali potentia partilibus praesidens fatis, quam theologi veteres
+				fingentes Iustitiae filiam ex abdita quadam aeternitate tradunt
+				omnia despectare terrena.</p>
+			<p>Non ergo erunt homines deliciis diffluentes audiendi, si
+				quando de amicitia, quam nec usu nec ratione habent cognitam,
+				disputabunt. Nam quis est, pro deorum fidem atque hominum! qui
+				velit, ut neque diligat quemquam nec ipse ab ullo diligatur,
+				circumfluere omnibus copiis atque in omnium rerum abundantia vivere?
+				Haec enim est tyrannorum vita nimirum, in qua nulla fides, nulla
+				caritas, nulla stabilis benevolentiae potest esse fiducia, omnia
+				semper suspecta atque sollicita, nullus locus amicitiae.</p>
+			<p>Accedat huc suavitas quaedam oportet sermonum atque morum,
+				haudquaquam mediocre condimentum amicitiae. Tristitia autem et in
+				omni re severitas habet illa quidem gravitatem, sed amicitia
+				remissior esse debet et liberior et dulcior et ad omnem comitatem
+				facilitatemque proclivior.</p>
+		</div>
+		<div class="col-xs-12 col-md-6">
+			<img class="img-responsive" src="img/home/histoire_img_1.jpg"
+				alt="histoire_img_1" />
+		</div>
+	</section>
+	<section id="preparation">
+		<h2 class="titre">Nos préparations</h2>
+	</section>
+	<section class="container container-detail spacer">
+		<div class="col-xs-12 col-md-6">
+			<p>Haec et huius modi quaedam innumerabilia ultrix facinorum
+				impiorum bonorumque praemiatrix aliquotiens operatur Adrastia atque
+				utinam semper quam vocabulo duplici etiam Nemesim appellamus: ius
+				quoddam sublime numinis efficacis, humanarum mentium opinione lunari
+				circulo superpositum, vel ut definiunt alii, substantialis tutela
+				generali potentia partilibus praesidens fatis, quam theologi veteres
+				fingentes Iustitiae filiam ex abdita quadam aeternitate tradunt
+				omnia despectare terrena.</p>
+			<p>Non ergo erunt homines deliciis diffluentes audiendi, si
+				quando de amicitia, quam nec usu nec ratione habent cognitam,
+				disputabunt. Nam quis est, pro deorum fidem atque hominum! qui
+				velit, ut neque diligat quemquam nec ipse ab ullo diligatur,
+				circumfluere omnibus copiis atque in omnium rerum abundantia vivere?
+				Haec enim est tyrannorum vita nimirum, in qua nulla fides, nulla
+				caritas, nulla stabilis benevolentiae potest esse fiducia, omnia
+				semper suspecta atque sollicita, nullus locus amicitiae.</p>
+			<p>Accedat huc suavitas quaedam oportet sermonum atque morum,
+				haudquaquam mediocre condimentum amicitiae. Tristitia autem et in
+				omni re severitas habet illa quidem gravitatem, sed amicitia
+				remissior esse debet et liberior et dulcior et ad omnem comitatem
+				facilitatemque proclivior.</p>
+		</div>
+		<div class="col-xs-12 col-md-6">
+			<img class="img-responsive" src="img/home/histoire_img_1.jpg"
+				alt="histoire_img_1" />
+		</div>
+	</section>
+	<section id="articles">
+		<h2 class="titre">Articles</h2>
+	</section>
+	<section class="container container-detail spacer">
+		<div class="col-xs-12 col-md-6">
+			<p>Haec et huius modi quaedam innumerabilia ultrix facinorum
+				impiorum bonorumque praemiatrix aliquotiens operatur Adrastia atque
+				utinam semper quam vocabulo duplici etiam Nemesim appellamus: ius
+				quoddam sublime numinis efficacis, humanarum mentium opinione lunari
+				circulo superpositum, vel ut definiunt alii, substantialis tutela
+				generali potentia partilibus praesidens fatis, quam theologi veteres
+				fingentes Iustitiae filiam ex abdita quadam aeternitate tradunt
+				omnia despectare terrena.</p>
+			<p>Non ergo erunt homines deliciis diffluentes audiendi, si
+				quando de amicitia, quam nec usu nec ratione habent cognitam,
+				disputabunt. Nam quis est, pro deorum fidem atque hominum! qui
+				velit, ut neque diligat quemquam nec ipse ab ullo diligatur,
+				circumfluere omnibus copiis atque in omnium rerum abundantia vivere?
+				Haec enim est tyrannorum vita nimirum, in qua nulla fides, nulla
+				caritas, nulla stabilis benevolentiae potest esse fiducia, omnia
+				semper suspecta atque sollicita, nullus locus amicitiae.</p>
+			<p>Accedat huc suavitas quaedam oportet sermonum atque morum,
+				haudquaquam mediocre condimentum amicitiae. Tristitia autem et in
+				omni re severitas habet illa quidem gravitatem, sed amicitia
+				remissior esse debet et liberior et dulcior et ad omnem comitatem
+				facilitatemque proclivior.</p>
+		</div>
+		<div class="col-xs-12 col-md-6">
+			<img class="img-responsive" src="img/home/histoire_img_1.jpg"
+				alt="histoire_img_1" />
+		</div>
+	</section>
+
+	<footer th:replace="template :: footer"></footer>
+	</div>
+</body>
+</html>

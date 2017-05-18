@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="template :: head"></head>
+<body>
+	<header th:replace="template :: header"></header>
+	<div class="container">
+		<div class="col-sm-6 col-sm-offset-3 spacer">
+	
+				<div class="panel panel-default ">
+					<div class="panel-heading">Info sur le compte</div>
+					<div class="col-xs-12">
+						<form id="form_utilisateur" th:action="@{EditerUtilisateur}" method="post"	th:object="${compte}">
+							<div class="row">
+							<div class="col-xs-12">
+								
+									
+								<br/>
+							<p>Pseudo : <span th:text="${compte.username}"></span></p>
+							<p>Nom : <span th:text="${compte.nom}"></span>
+							<input type="text" th:field="*{nom}" class="form-control" /> </p>
+							<span	class="text-danger" th:errors="*{nom}"></span>
+							<p>Prénom : <span th:text="${compte.prenom}"></span>
+							<input type="text" th:field="*{prenom}" class="form-control" /> </p>
+							<span	class="text-danger" th:errors="*{prenom}"></span>
+							<p>Mail : <span th:text="${compte.mail}"></span>
+							<input type="text" th:field="*{mail}" class="form-control" /> </p>
+							<span	class="text-danger" th:errors="*{mail}"></span>
+							<p>Telephone : <span th:text="${compte.telephone}"></span>
+							<input type="text" th:field="*{telephone}" class="form-control" /> </p>
+							<span	class="text-danger" th:errors="*{telephone}"></span>
+							</div>
+							</div>
+							<button type="submit" class="form_btn_sauver btn btn-success">Sauver</button>
+							<button type="button" class="form_btn_editer btn btn-primary">Editer</button>
+							<button type="button" class="form_btn_annuler btn btn-danger">Annuler</button>
+							</form>
+					</div>
+					
+					
+					<div class="panel-body"></div>
+				</div>
+			</div>
+		</div>
+		
+		<footer th:replace="template :: footer"></footer>
+</body>
+</html>
