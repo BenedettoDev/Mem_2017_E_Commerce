@@ -10,4 +10,7 @@ public interface UtilisateurRepository extends JpaRepository<Utilisateur, String
 	@Query("SELECT U FROM Utilisateur U WHERE U.username = ?")
 	Utilisateur findByUserName(String name);
 
+	@Query("SELECT U FROM Utilisateur U WHERE U.mail = ?")
+	Utilisateur findByMail(String mail);
+
 }

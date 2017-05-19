@@ -356,10 +356,10 @@ header .container {
 		
 	}
 	.container-actualite ul {
-		
+		text-decoration: none;
 	}
 	.container-actualite ul li {
-		
+		list-style-type: none;
 	}
 	/* 	Page Compte */
 	#form_utilisateur input, #form_utilisateur .form_btn_sauver,

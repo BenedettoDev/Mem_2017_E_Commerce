@@ -7,11 +7,19 @@
 	<div class="spacer"></div>
 		<div class="row row-actualite">
 		<h1>Actualité</h1>
-		<p th:text="${listActualite.size()}"></p>
 		<ul>
 		<li th:each="actu : ${listActualite}">
-			<h3 th:text="${actu.titre}"></h3>
-			<p th:text="${actu.description}"></p>
+			<div class="panel panel-default ">
+				<div class="panel-heading">	<b th:text="${actu.titre}"></b></div>
+				<div class="panel-body">
+					<p th:text="${actu.description}"></p>
+				</div>
+			</div>
+		
+		
+		
+		
+			
 			<div th:if="${actu.produit!=null}">
 				<a th:href="@{Index(id=${p.id})}">Voir la page du produit</a>
 			</div>

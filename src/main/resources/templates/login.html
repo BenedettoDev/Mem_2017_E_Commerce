@@ -13,7 +13,7 @@
 				<span class="red"> Vous avez été déconnecté</span>
 			</div>
 			<div class="panel panel-default ">
-				<div class="panel-heading">Connection</div>
+				<div class="panel-heading">Connexion</div>
 				<div class="panel-body">
 					<form th:action="@{/Login}" method="post">
 						<div class="alert alert-danger" th:if="${param.error}">
@@ -22,18 +22,18 @@
 							</button>
 							<span class="red"> Pseudo ou Mot de passe invalide </span>
 						</div>
-						<div class="form-group">
+						<div class="form-group" th:classappend="${param.error} ? 'has-error' : ''">
 							<label class="control-label">Pseudo</label> 
 							<input type="text" name="username" class="form-control"/> 
 							<span class="text-danger"></span>
 						</div>
-						<div class="form-group">
+						<div class="form-group" th:classappend="${param.error} ? 'has-error' : ''">
 							<label class="control-label">Mot de passe</label>
 							<input type="password" name="password" class="form-control" />
 							<span class="text-danger"></span>
 						</div>
 						<button type="submit" class="btn btn-primary">Se connecter</button>
-						<a th:href="@{/Inscription}" class="pull-right">Pas encore inscris ?</a>
+						<a th:href="@{/Inscription}" class="pull-right">Pas encore inscrit ?</a>
 					</form>
 				</div>
 			</div>

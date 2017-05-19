@@ -8,6 +8,7 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -16,8 +17,9 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class Utilisateur implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	 @NotNull
+	
 	@Id
+	@NotEmpty
 	private String username;
 	@Email
 	@NotEmpty
@@ -25,22 +27,25 @@ public class Utilisateur implements Serializable {
 	@NotEmpty
 	private String nom;
 
+	@NotEmpty
 	private String prenom;
-	
-	 private String telephone;
 
-	 private String adresse;
-	 
-	 private String password;
-	 
-	 private boolean actived;
 
-	 private String role;
+	private String telephone;
 
-	@OneToMany (mappedBy="utilisateur",fetch=FetchType.LAZY)
+
+	private String adresse;
+	@NotEmpty
+	private String password;
+
+	private boolean actived;
+
+	private String role;
+
+	@OneToMany(mappedBy = "utilisateur", fetch = FetchType.LAZY)
 	private Collection<Commande> commandes;
-	
-	//Constructeurs
+
+	// Constructeurs
 	public Utilisateur() {
 		super();
 	}
@@ -49,9 +54,9 @@ public class Utilisateur implements Serializable {
 		this.username = username;
 		this.password = password;
 	}
-	
+
 	public Utilisateur(String username, String mail, String nom, String prenom, String password) {
-		this(username,password);
+		this(username, password);
 		this.mail = mail;
 		this.nom = nom;
 		this.prenom = prenom;
@@ -60,15 +65,15 @@ public class Utilisateur implements Serializable {
 	}
 
 	public Utilisateur(Utilisateur utilisateur) {
-		this(utilisateur.username,utilisateur.password);
+		this(utilisateur.username, utilisateur.password);
 		this.mail = utilisateur.mail;
 		this.nom = utilisateur.nom;
 		this.prenom = utilisateur.prenom;
 		this.role = "USER";
 		this.actived = true;
 	}
-	
-	//Getters et setters
+
+	// Getters et setters
 	public String getNom() {
 		return nom;
 	}
@@ -96,12 +101,15 @@ public class Utilisateur implements Serializable {
 	public String getPrenom() {
 		return prenom;
 	}
+
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
+
 	public String getMail() {
 		return mail;
 	}
+
 	public void setMail(String mail) {
 		this.mail = mail;
 	}
@@ -121,7 +129,7 @@ public class Utilisateur implements Serializable {
 	public void setActived(boolean actived) {
 		this.actived = actived;
 	}
-	
+
 	public String getRoles() {
 		return role;
 	}
@@ -129,7 +137,6 @@ public class Utilisateur implements Serializable {
 	public void setRoles(String roles) {
 		this.role = roles;
 	}
-	
 
 	public String getTelephone() {
 		return telephone;
@@ -138,7 +145,6 @@ public class Utilisateur implements Serializable {
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
-	
 
 	public String getAdresse() {
 		return adresse;
@@ -150,13 +156,13 @@ public class Utilisateur implements Serializable {
 
 	public void insciption() {
 		this.actived = true;
-		this.role = "USER";		
+		this.role = "USER";
 	}
+
 	@Override
 	public String toString() {
 		return "Utilisateur [username=" + username + ", mail=" + mail + ", nom=" + nom + ", prenom=" + prenom
 				+ ", password=" + password + ", actived=" + actived + ", roles=" + role + "]";
 	}
-
 
 }

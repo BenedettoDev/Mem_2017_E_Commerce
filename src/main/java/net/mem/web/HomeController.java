@@ -6,7 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.context.support.UiApplicationContextUtils;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.Errors;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -41,10 +45,22 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value="/SaveUtilisateur",method=RequestMethod.POST)
-	public String saveUtilisateur(@Valid Utilisateur utilisateur,BindingResult errors){
-		if (errors.hasErrors()) {
-			return "Inscription";
+	public String saveUtilisateur(Model model,@Valid Utilisateur utilisateur,BindingResult errors){
+//		Si le pseudo est déjà utilisé
+		if(utilisateurRepository.findByUserName(utilisateur.getUsername()) != null){
+			FieldError error = new FieldError("username","username","Le pseudo est déjà utilisé. Veuillez le changer");
+			errors.addError(error);
 		}
+		if(utilisateurRepository.findByMail(utilisateur.getMail()) != null){
+			FieldError error = new FieldError("mail","mail","le mail est déjà utilisé. Veuillez le changer");
+			errors.addError(error);
+		}
+		
+		if (errors.hasErrors()) {
+			return "inscription";
+		}
+
+		
 		Md5PasswordEncoder encryptMD5 = new Md5PasswordEncoder();
 		String pass = encryptMD5.encodePassword(utilisateur.getPass(),null);
 		utilisateur.setPassword(pass);
