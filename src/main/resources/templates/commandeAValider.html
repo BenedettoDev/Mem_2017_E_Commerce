@@ -4,32 +4,51 @@
 <body>
 	<header th:replace="template :: header"></header>
 	<div class="container">
-		
-		<h1>Etape : 2 </h1>
-		<p>voici la commande #<strong th:text="${commande.id}"></strong> à valider</p>
-		
-		<div th:if="${plateau != null}">
-		<p> Vous avez choisi un plateau <strong class="bold" th:text="${plateau.typePlateauString}"></strong> pour <strong th:text="${plateau.nbPers}"></strong> personnes</p>
-		<div th:if="${plateau.note}">Vous avez ajouté les informations supplémentaires : <p th:text="${plateau.note}"></p></div>
-		</div>
-		<div th:if="${panier != null}">
-		<p>Vous avez choisi un panier</p>
-		</div>
-		<div> Si toutes ces informations sont correctes. Veuillez svp nous informer de la réception de votre commande et valider la commande</div>
-		
-		 <form  class="form-inline"
+		<h1>Etape : 2</h1>
+		<div class="panel panel-default ">
+			<div class="panel-heading">Confirmation de la commande</div>
+			<div class="panel-body">
+				<p>
+					voici la commande #<strong th:text="${commande.id}"></strong> à
+					valider
+				</p>
+
+				<div th:if="${plateau != null}">
+					<p>
+						Vous avez choisi un plateau <strong class="bold"
+							th:text="${plateau.typePlateauString}"></strong> pour <strong
+							th:text="${plateau.nbPers}"></strong> personnes
+					</p>
+					<p>Le Montant de ce plateau sera de : <strong th:text="${plateau.montant}+' €'"></strong></p>
+					<div th:if="${plateau.note}">
+						Vous avez ajouté les informations supplémentaires :
+						<p th:text="${plateau.note}"></p>
+					</div>
+				</div>
+				<div th:if="${panier != null}">
+					<p>Vous avez choisi de réaliser une commande de <strong th:text="${panier.nbPanier}"></strong> panier(s) pour une valeur de <strong th:text="${panier.valeur}"></strong> € par panier</p>
+					<p>Ce(s) panier(s) sera/seront <strong th:if="${panier.identique}" >identique(s)</strong><strong th:unless="${panier.identique}" >différent(s)</strong> </p>
+				</div>
+				<div>Si toutes ces informations sont correctes. Veuillez svp
+					nous informer de la réception de votre commande et valider la
+					commande</div>
+
+				<form class="form-inline"
 					th:action="@{/User/Commande/CommandeAValider(id=${commande.id})}"
 					method="POST" th:object="${commande}">
 					<div class="container form-group" style="position: relative">
-						
-								<input type="hidden" name="commande.id" th:value="${commande.id}"/>
-								<label>La commande doit être réalisée pour : </label>
-								 <input type='text' class="form-control datetimepicker" name="commande_prevu_pour"	id='datetimepicker1' />
-								 
-								
+
+						<input type="hidden" name="commande.id" th:value="${commande.id}" />
+						<label>La commande doit être réalisée pour le : </label> <input
+							type='text' class="form-control datetimepicker"
+							name="commande_prevu_pour" id='datetimepicker1' />
+							 <span class="label label-danger" th:errors="*{commande_prevu_pour}"></span>
 					</div>
-					 <button type="submit" class="btn btn-default">Confirmer ma commande</button>
+					<button type="submit" class="btn btn-default">Confirmer ma
+						commande</button>
 				</form>
+			</div>
+		</div>
 	</div>
 	<footer th:replace="template :: footer"></footer>
 

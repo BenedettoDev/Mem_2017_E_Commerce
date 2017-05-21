@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import net.mem.dao.entities.Commande;
+import net.mem.dao.entities.Panier;
 import net.mem.dao.entities.Plateau;
 
 @Controller
@@ -26,7 +27,7 @@ public class CommandeController {
 	
 	@RequestMapping(value="/commanderPanier")
 	public String commanderPanier(Model model){
-		model.addAttribute("panier", new Commande());
+		model.addAttribute("panier", new Panier());
 		return index(model);
 	}
 }
