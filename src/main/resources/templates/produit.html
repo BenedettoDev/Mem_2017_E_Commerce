@@ -27,10 +27,12 @@
 			</div><!-- /.row -->
 			</form>
 		</div>
+		<div class="liste-produit-page-panel-categorie">
 		<div class="row liste-produit-panel-categorie">
 				<button class="btn btn-categorie" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
 				  Rechercher par catégorie
 				</button>
+				
 				<div class="collapse panel-categorie" id="collapseExample">
 				  <div class="well">
 				    <ul class="categorie-liste" >
@@ -60,6 +62,7 @@
 				</ul>
 	
 			</div>
+		</div>
 		</div>
 		<div th:if="${preparation.size()!=0}" class="row liste-produits liste-produits-panel">
 			<h4>Nos préparations</h4><hr/>

@@ -28,6 +28,9 @@
 							<p>Telephone : <span th:text="${compte.telephone}"></span>
 							<input type="text" th:field="*{telephone}" class="form-control" /> </p>
 							<span	class="text-danger" th:errors="*{telephone}"></span>
+							<p>Adresse : <span th:text="${compte.adresse}"></span>
+							<input type="text" th:field="*{adresse}" class="form-control" /> </p>
+							<span	class="text-danger" th:errors="*{adresse}"></span>
 							</div>
 							</div>
 							<button type="submit" class="form_btn_sauver btn btn-success">Sauver</button>

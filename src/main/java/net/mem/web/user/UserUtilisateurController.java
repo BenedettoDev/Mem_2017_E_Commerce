@@ -65,6 +65,7 @@ public class UserUtilisateurController {
 		Utilisateur u = utilisateurRepository.findOne(principal.getName());
 		u.setTelephone(utilisateur.getTelephone());
 		u.setMail(utilisateur.getMail());
+		u.setAdresse(utilisateur.getAdresse());
 		utilisateurRepository.save(u);
 		return panelCompte(model, principal);
 	}

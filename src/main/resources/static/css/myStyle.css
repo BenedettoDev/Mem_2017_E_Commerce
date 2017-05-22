@@ -285,6 +285,15 @@ header .container {
 	}
 
 	/* 	PAGE PRODUIT */
+	.liste-produit-page-panel-categorie {
+	margin-bottom:20px;
+	padding: 20px 0;
+	background-color: white;
+	}
+	
+	.form-motCle {
+		margin-top: 20px;
+	}
 	.produits {}
 	
 	.container-produits h1 {
