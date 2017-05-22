@@ -21,6 +21,7 @@
 	</ul>
 	<ul th:if="${commande.confection != null and commande.confection.type == 'Plateau'}" class="list-group">
 		<li class="list-group-item"><span class="badge"  th:text="${commande.confection.nbPers}+' pers'"></span><p>Nombre de personnes </p></li>
+		<li class="list-group-item"><p>Type de plateau  <span th:text="' ( '+${commande.confection.typePlateauString}+' )'"></span></p></li>
 		<li class="list-group-item" th:if="${commande.confection.note != ''}" >
 			<p>Information supplémentaire : </p>
 			<p th:text="${commande.confection.note}"></p>	
