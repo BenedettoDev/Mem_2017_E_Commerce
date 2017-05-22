@@ -30,8 +30,13 @@
 					<tbody>
 						<tr th:each="p:${ligne}">
 							<td th:text="${p.produit.nom}"></td>
-							<td class="col-md-1"
-								th:text="${p.quantite}+' '+ g"></td>
+							<td class="col-md-1">
+							<p><span th:text="${p.quantite}"></span>
+								<span th:if="${p.produit.unite == 'Pce'}" th:text="Pce"></span>
+						 	 	<span th:if="${p.produit.unite == 'g'}" th:text="g"></span>
+						 	 	<span th:if="${p.produit.unite == 'Kg'}" th:text="g"></span>
+							</p>
+							</td>
 							<td class="col-md-1" th:text="${p.prix}+' €'"></td>
 							<td th:text="${p.choix_coupe}"></td>
 							<td class="col-md-1"><a class="btn btn-sm btn-danger"

@@ -42,8 +42,8 @@
 				 <div class="from-ajout-panier" sec:authorize="hasRole('ROLE_USER')">
 				 <form  class="form-inline" th:action="@{/User/Commande/ajouterProduit}" method="post" th:object="${ligne}">
 				  <div class="form-group">
-				  	<select class="form-control" name="choix_coupe" th:if="${produit.tranche OR  produit.morceau}">
-					  <option>En tranche ou en morceau</option>
+				  	<select class="form-control" name="choix_coupe" th:if="${produit.tranche AND produit.unite == 'g' OR produit.unite == 'Kg'  OR  produit.morceau AND produit.unite == 'g' OR produit.unite == 'kg'}">
+					  <option>Choix de la coupe</option>
 					  <option th:if="${produit.tranche}"  value="En tranche">En tranche</option>
 					  <option th:if="${produit.morceau}" value="En morceau">En morceau</option>
 					</select>
@@ -51,7 +51,11 @@
 				 	<input type="hidden" name="produit.id" class="form-control" th:value="${produit.id}" />
 
 				 	<input type="text" name="quantite" class="form-control" />
-				 	 <div class="input-group-addon">g</div>
+				 	 <div class="input-group-addon">
+				 	 	<span th:if="${produit.unite == 'Pce'}" th:text="Pce"></span>
+				 	 	<span th:if="${produit.unite == 'g'}" th:text="g"></span>
+				 	 	<span th:if="${produit.unite == 'Kg'}" th:text="g"></span>
+				 	 </div>
 				 	 </div>
 				 	 </div>
 				 	<button type="submit" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></button>	
