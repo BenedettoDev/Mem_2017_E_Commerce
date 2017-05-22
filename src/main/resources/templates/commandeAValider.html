@@ -36,8 +36,15 @@
 				<form class="form-inline"
 					th:action="@{/User/Commande/CommandeAValider(id=${commande.id})}"
 					method="POST" th:object="${commande}">
+		
 					<div class="container form-group" style="position: relative">
-
+					
+						<p th:if="*{utilisateur.telephone == null}">Telephone : 
+							<input type="text" th:field="*{utilisateur.telephone}" class="form-control" /> </p>
+							<span	class="text-danger" th:errors="*{utilisateur.telephone}"></span>
+							<p th:if="*{utilisateur.adresse == null}">Adresse :
+							<input type="text" th:field="*{utilisateur.adresse}" class="form-control" /> </p>
+							<span	class="text-danger" th:errors="*{utilisateur.adresse}"></span>
 						<input type="hidden" name="commande.id" th:value="${commande.id}" />
 						<label>La commande doit être réalisée pour le : </label> <input
 							type='text' class="form-control datetimepicker"

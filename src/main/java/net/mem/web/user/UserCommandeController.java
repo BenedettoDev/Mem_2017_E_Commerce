@@ -23,6 +23,7 @@ import net.mem.dao.entities.Ligne;
 import net.mem.dao.entities.Panier;
 import net.mem.dao.entities.Plateau;
 import net.mem.dao.entities.Produit;
+import net.mem.dao.entities.Utilisateur;
 import net.mem.web.CommandeController;
 import net.mem.dao.entities.Commande.Etat;
 import net.mem.dao.entities.Ligne.Id;
@@ -100,6 +101,7 @@ public class UserCommandeController {
 
 	@RequestMapping(value = "commanderPlateau", method = RequestMethod.POST)
 	public String commanderPlateau(@Valid Plateau plateau, BindingResult errors, Principal principal, Model model) {
+
 		if (plateau.getTypePlateauString().equals("Type de repas")) {
 			FieldError error = new FieldError("typePlateauString", "typePlateauString",
 					"Vous devez sélectionner un type de plateau");
@@ -107,6 +109,10 @@ public class UserCommandeController {
 		}
 		if (errors.hasErrors()) {
 			return "commande";
+		}
+		Utilisateur u = utilisateurRepository.findByUserName(principal.getName());
+		if (u.getTelephone() == null || u.getAdresse() == null) {
+			model.addAttribute("utilisateur", u);
 		}
 
 		plateau.setTypePlateau(Plateau.TypePlateau.getEnum(plateau.getTypePlateauString()));
@@ -117,7 +123,7 @@ public class UserCommandeController {
 	}
 
 	@RequestMapping(value = "commanderPanier", method = RequestMethod.POST)
-	public String commanderPanier(@Valid Panier panier,BindingResult errors, Principal principal, Model model) {
+	public String commanderPanier(@Valid Panier panier, BindingResult errors, Principal principal, Model model) {
 		if (errors.hasErrors()) {
 			return "commande";
 		}
@@ -140,7 +146,7 @@ public class UserCommandeController {
 			Model model) {
 		return "commandeAValider";
 	}
-	
+
 	@RequestMapping(value = "CommandeAValider", method = RequestMethod.POST)
 	public String commandeAValider(Principal principal, Long id, @Valid Commande commande, BindingResult errors,
 			Model model) {
@@ -149,10 +155,19 @@ public class UserCommandeController {
 					"Vous devez sélectionner une date");
 			errors.addError(error);
 		}
+		
 		if (errors.hasErrors()) {
-			return  commandeValid(principal, id, commande, errors, model);
-			
+			return commandeValid(principal, id, commande, errors, model);
+
 		}
+		
+		Utilisateur u = utilisateurRepository.findByUserName(principal.getName());
+		if (u.getTelephone() == null || u.getAdresse() == null) {
+			u.setTelephone(commande.getUtilisateur().getTelephone());
+			u.setAdresse(commande.getUtilisateur().getAdresse());
+			utilisateurRepository.save(u);
+		}
+		
 		Commande c = commandeRepository.findOne(id);
 		c.setCommande_prevu_pour(commande.getCommande_prevu_pour());
 		c.setEtat(Etat.EnCours);
