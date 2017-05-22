@@ -18,6 +18,34 @@ header .container {
 	body {
 		background-color: rgba(232, 237, 245, 0.2);
 	}
+	footer {
+	background-color: #222;
+	color:white;
+	}
+	footer .container .info {
+		text-align: center;
+		margin-bottom: 20px;
+	}
+	footer .container .copy {
+		position:relative;
+		width:180px;
+		float: left;
+		margin: 0;
+	}
+	footer .container .powered {
+		text-align: center;
+	}
+	footer .container .condition {
+				position:relative;
+		width:180px;
+		float: right;
+		margin: 0;
+	}
+	
+	
+	h1 {
+	margin :10px;
+	}
 	.navbar-header a {
 		padding-left: 30px;
 	}
@@ -161,7 +189,19 @@ header .container {
 	}
 	.container {
 		padding-top: 50px;
+	  
 	}
+	
+	.container-produits {
+	 margin-bottom: 20px;
+	 	min-height: 950px; 
+	 }
+	.container-commande,.container-actualite,.container-connexion,.container-compte-utilisateur,.container-panier,.container-commande-user,.container-compte-user,
+	.container-panel-produit-admin,.container-panel-commande-admin,.container-panel-lieu-admin,.container-panel-categorie-admin,.container-panel-admin,
+	.container-panel-article-admin,.container-form-article-admin,.container-panel-allergenes-admin,.container-panel-suggestion-admin,.container-panel-preparation,.container-panel-utilisateur {
+	 min-height: 834px; 
+	  margin-bottom: 20px;
+	 }
 	.btn-categorie {
 		
 	}
@@ -366,6 +406,7 @@ header .container {
 	}
 	.container-actualite ul {
 		text-decoration: none;
+		padding: 0 0 0 0;
 	}
 	.container-actualite ul li {
 		list-style-type: none;
