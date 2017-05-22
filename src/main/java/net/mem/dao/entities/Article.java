@@ -33,7 +33,7 @@ public class Article implements Serializable {
 
 	private Date date;
 	
-	private boolean isVisible;
+	public boolean isVisible;
 	
 	public Article() {
 		super();
@@ -96,8 +96,10 @@ public class Article implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Article [id=" + id + ", Description=" + Description + ", produit=" + produit + "]";
+		return "Article [id=" + id + ", titre=" + titre + ", Description=" + Description + ", produit=" + produit
+				+ ", date=" + date + ", isVisible=" + isVisible + "]";
 	}
+
 	
 	
 	

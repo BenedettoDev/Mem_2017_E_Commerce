@@ -23,7 +23,7 @@ public class ActualiteController {
 	
 	@RequestMapping(value={"/Index","/"})
 	public String panelActualite(Model model) {
-		model.addAttribute("listActualite",articleRepository.findAll());
+		model.addAttribute("listActualite",articleRepository.findArticleVisible());
 		return "actualite";
 	}
 	

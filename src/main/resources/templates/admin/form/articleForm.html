@@ -1,73 +1,77 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="template :: head">
-<meta charset="utf-8" /></head>
+<meta charset="utf-8" />
+</head>
 <body>
 
 	<header th:replace="template :: header"></header>
 	<div th:replace="template :: adminNav"></div>
 	<div class="container spacer">
-							
-			<div class="col-sm-10 col-sm-offset-1 spacer">
+
+		<div class="col-sm-10 col-sm-offset-1 spacer">
 			<div class="panel panel-default ">
 				<div class="panel-heading">Ajout d'un article</div>
 				<div class="panel-body">
 
 					<form th:action="@{AjouterArticle}" method="post"
 						th:object="${article}">
-						
-							<div class=" form-group">
-								<label class="control-label">Titre</label> <input type="text"
-									th:field="*{titre}" class="form-control" /> <span
-									class="text-danger" th:errors="*{titre}"></span>
-							</div>
-							<div class="form-group">
-									<textarea rows="5" th:field="*{description}" class="form-control">
-									</textarea> <span
-									class="text-danger" th:errors="*{description}"></span>
-							</div>
-							<div class="form-group">
-							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#selectProduit">
-						  sélectionner un produit
-						</button>
-							</div>
-							<div class="form-group">
+
+						<div class=" form-group">
+							<label class="control-label">Titre</label> <input type="text"
+								th:field="*{titre}" class="form-control" /> <span
+								class="text-danger" th:errors="*{titre}"></span>
+						</div>
+						<div class="form-group">
+							<textarea rows="5" th:field="*{description}" class="form-control">
+									</textarea>
+							<span class="text-danger" th:errors="*{description}"></span>
+						</div>
+						<div class="form-group">
 							
-								<div class="radio">
-									
-										<label>
-											Cet article est-il rendu public ? <br/>
-									    	<input type="radio" name="visible" th:value="1" checked="checked" /> Oui<br/>
-									    	<input type="radio" name="visible" th:value="0" /> Non
-									  </label>
-									
-								</div>
+							<button id="article-selection-produit-btn" type="button" class="btn btn-primary">sélectionner un produit</button>
+						</div>
+						<div class="form-group">
+							<div id="table-article-produits-1" class="table-responsive">
+							<input type="text" th:field="*{produit.id}" readonly="readonly" class="form-control" value=""/>
+							  <table class="table table-hover">
+							   	<thead> 
+							   		<tr>
+							   			<th>id</th>
+							   			<th>Nom</th>
+							   			</tr>
+							   	</thead>
+							   	<tbody>
+							   	<tr th:each="produit:${produits}" class="ligne">
+								   	<td class="id" th:text="${produit.id}"></td>
+								   	<td class="nom" th:text="${produit.nom}"></td>
+							   	</tr>
+							   	</tbody>	
+							  </table>
+							 </div>
+			
+						</div>
+
+						<div class="form-group">
+							<div class="radio">
+
+								<label> Cet article est-il rendu public ? <br /> <input
+									type="radio" name="visible" th:value="1" checked="checked" />
+									Oui<br /> <input type="radio" name="visible" th:value="0" />
+									Non
+								</label>
+
 							</div>
+						</div>
 						<button type="submit" class="btn btn-primary">Submit</button>
-						
+
 					</form>
 				</div>
+			</div>
 		</div>
 	</div>
-	</div>
+
 	
-	<div class="modal fade" id="selectProduit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-	  <div class="modal-dialog" role="document">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-	      </div>
-	      <div class="modal-body">
-	        ...
-	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-	        <button type="button" class="btn btn-primary">Save changes</button>
-	      </div>
-	    </div>
-	  </div>
-	</div>
 	<footer th:replace="template :: footer"></footer>
 </body>
 </html>

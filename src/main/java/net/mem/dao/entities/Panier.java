@@ -13,7 +13,7 @@ public class Panier extends Confection {
 	private static final long serialVersionUID = 1L;
 
 	@NotNull
-	@Digits(fraction = 0, integer = 3)
+	@Digits(fraction = 0, integer = 3, message="test")
 	@Min(value=1,message = "Le champ  nombre de paniers est incorrect. Il doit contenir au minimum 1 panier")
 	private Integer nbPanier;
 	@NotNull

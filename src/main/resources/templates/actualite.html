@@ -3,32 +3,31 @@
 <head th:replace="template :: head"></head>
 <body>
 	<header th:replace="template :: header"></header>
-<div class="container container-actualite">
-	<div class="spacer"></div>
+	<div class="container container-actualite">
+		<div class="spacer"></div>
 		<div class="row row-actualite">
-		<h1>Actualité</h1>
-		<ul>
-		<li th:each="actu : ${listActualite}">
-			<div class="panel panel-default ">
-				<div class="panel-heading">	<b th:text="${actu.titre}"></b></div>
-				<div class="panel-body">
-					<p th:text="${actu.description}"></p>
-				</div>
-			</div>
-		
-		
-		
-		
-			
-			<div th:if="${actu.produit!=null}">
-				<a th:href="@{Index(id=${p.id})}">Voir la page du produit</a>
-			</div>
-			
-		</li>
-		</ul>
+			<h1>Actualité</h1>
+			<ul>
+				<li th:each="actu : ${listActualite}">
+					<div class="panel panel-default ">
+						<div class="panel-heading">
+							<b th:text="${actu.titre}"></b>
+							<span th:text="${#dates.format(actu.date, 'dd-MMM-yyyy')}" style="float:right;"></span>
+						</div>
+						<div class="panel-body">
+							<p th:text="${actu.description}"></p>
+						</div>
+						<div class="panel-footer" th:if="${actu.produit!=null}">
+
+							<a th:href="@{/Produit/Index(id=${actu.produit.id})}">Voir la page du
+								produit</a>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
 	</div>
-	</div>
-	
+
 	<footer th:replace="template :: footer"></footer>
 </body>
 </html>
