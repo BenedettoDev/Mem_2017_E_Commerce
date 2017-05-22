@@ -78,7 +78,9 @@ public class AdminProduitController {
 		model.addAttribute("lieu",new Lieu());
 		model.addAttribute("unites", unites);
 		model.addAttribute("categories",categories);
-		model.addAttribute("produit",new Produit());
+		if (!model.containsAttribute("produit")){
+			model.addAttribute("produit",new Produit());
+		}
 	
 		model.addAttribute("allergenes",allergeneRepository.findAll());
 		return "admin/form/formProduit";
@@ -131,9 +133,9 @@ public class AdminProduitController {
 	
 	
 	@RequestMapping(value="SaveProduit",method=RequestMethod.POST)
-	public String saveProduit( Produit prod, BindingResult bindingResult,@RequestParam(name="img_name")MultipartFile file) throws Exception{
+	public String saveProduit(@Valid Produit prod, BindingResult bindingResult,@RequestParam(name="img_name")MultipartFile file,Model model) throws Exception{
 		if (bindingResult.hasErrors()){
-			return "admin/formProduit";
+			return formProduit(model);
 		}
 		
 		// Enregistrement du nom originale dans la db
@@ -167,20 +169,9 @@ public class AdminProduitController {
 	
 	@RequestMapping(value="Editer")
 	public String edit(Long id,Model model){
-		List <Lieu> lieux = lieuRepository.findAll();
-		List <Categorie> categories = categorieRepository.findAll();				
-		Map<String, String> unites = (Map<String, String>) new HashMap<String,String>();
-		unites.put("Pce","Pièce");
-		unites.put("Kg","Kilogramme");
-		unites.put("G","Gramme");
-		
-		
 		Produit prod = produitRepository.getOne(id);
 		model.addAttribute("produit",prod);
-		model.addAttribute("lieux",lieux);
-		model.addAttribute("unites",unites);
-		model.addAttribute("categories",categories);
-		return "admin/EditProduit";
+		return formProduit(model);
 
 	}
 	

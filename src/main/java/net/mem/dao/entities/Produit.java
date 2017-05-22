@@ -28,6 +28,7 @@ public class Produit implements Serializable {
 	@NotEmpty
 	private String label;
 	
+	@NotEmpty
 	private String nom;
 	
 	@ManyToOne
