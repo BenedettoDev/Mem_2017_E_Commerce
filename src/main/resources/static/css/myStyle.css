@@ -385,6 +385,14 @@ header .container {
 	 width: 125px;
 	 float:left;
 	}
+	
+/* 	CONTACT */
+ .block-heading-facebook::before {
+     font-family: "FontAwesome";
+    display: inline-block;
+    margin-right: 5px;
+    content: "\f09a";
+}
 }
 
 @media all and (max-width: 768px) {
