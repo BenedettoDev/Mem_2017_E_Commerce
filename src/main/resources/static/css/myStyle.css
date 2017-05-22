@@ -198,7 +198,8 @@ header .container {
 	 }
 	.container-commande,.container-actualite,.container-connexion,.container-compte-utilisateur,.container-panier,.container-commande-user,.container-compte-user,
 	.container-panel-produit-admin,.container-panel-commande-admin,.container-panel-lieu-admin,.container-panel-categorie-admin,.container-panel-admin,
-	.container-panel-article-admin,.container-form-article-admin,.container-panel-allergenes-admin,.container-panel-suggestion-admin,.container-panel-preparation,.container-panel-utilisateur {
+	.container-panel-article-admin,.container-form-article-admin,.container-panel-allergenes-admin,.container-panel-suggestion-admin,.container-panel-preparation,.container-panel-utilisateur,
+	.container-commande-ligne,.container-commande-a-valider,.container-single-produit {
 	 min-height: 834px; 
 	  margin-bottom: 20px;
 	 }
