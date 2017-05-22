@@ -374,6 +374,7 @@ header .container {
 	#table-article-produits-1 {
 		display: none;
 	}
+
 	/* 	Page Compte */
 	#form_utilisateur input, #form_utilisateur .form_btn_sauver,
 		#form_utilisateur .form_btn_annuler {

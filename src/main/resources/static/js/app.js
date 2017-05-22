@@ -37,12 +37,14 @@ $(function() {
 	$("#article-selection-produit-btn").on('click',function(event){
 		$("#table-article-produits-1").show();
 		$("#table-article-produits-1 table").show();
+		
 	});
 	
 	$("#table-article-produits-1 .ligne .id").on('click',function(event){
 		var ligne = $(this).text();
-		$("#table-article-produits-1 input").attr("value",ligne);
+//		$("#table-article-produits-1 input").attr("value",ligne);
 		$("#table-article-produits-1 table").hide();
+		$("#table-article-produits-1").append('<input type="text" name="produit.id" readonly="readonly" class="form-control" value="'+ ligne+'"/>');
 	});
 	
 

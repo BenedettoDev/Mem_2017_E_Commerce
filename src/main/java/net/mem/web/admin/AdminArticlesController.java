@@ -70,6 +70,7 @@ public class AdminArticlesController {
 	 */
 	@RequestMapping(value="AjouterArticle",method= RequestMethod.POST)
 	public String ajouterArticle(Model model, Article article) {
+		System.out.println(article.toString());
 		article.setDate(new Date());
 		articleRepository.save(article);
 		return panelArticle(model);
