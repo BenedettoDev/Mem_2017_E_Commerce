@@ -32,6 +32,9 @@ public class Ligne implements Serializable {
 	@JoinColumn(name="FKCOMMANDE")
 	private Commande commande;
 	
+	
+	private String choix_coupe;
+	
 	public Ligne() {
 	}
 	
@@ -103,6 +106,16 @@ public class Ligne implements Serializable {
 	public String toString() {
 		return "Ligne [id=" + id + ", produit=" + produit + ", quantite=" + quantite + ", prix=" + prix + ", commande="
 				+ commande + "]";
+	}
+
+
+
+	public String getChoix_coupe() {
+		return choix_coupe;
+	}
+
+	public void setChoix_coupe(String choix_coupe) {
+		this.choix_coupe = choix_coupe;
 	}
 
 

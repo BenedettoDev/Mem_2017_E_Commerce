@@ -9,7 +9,7 @@
 	<p th:text="${commande.utilisateur.nom}+' '+${commande.utilisateur.prenom}"></p>
 	
 	<ul th:if="${commande.confection == null}" class="list-group">
-	  	<li class="list-group-item" th:each="p:${commande.lignes}"><span class="badge" th:text="${p.quantite}"></span> <p th:text="${p.produit.nom}"> </p></li>
+	  	<li class="list-group-item" th:each="p:${commande.lignes}"><span class="badge" th:text="${p.quantite}"></span>  <p th:text="${p.produit.nom} +' ( '+${p.choix_coupe}+' )'"> </p></li>
 	  	<li class="list-group-item" ><span class="badge" th:text="${commande.total}"></span> <p>Montant Total </p></li>
 	  	
 	</ul>

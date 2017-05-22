@@ -51,6 +51,10 @@ public class Produit implements Serializable {
 	private boolean suggestion;
 		
 	private boolean preparation;
+	
+	private boolean morceau;
+	
+	private boolean tranche;
 
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name="produit_allergene",
@@ -167,6 +171,23 @@ public class Produit implements Serializable {
 
 	public void setPreparation(boolean preparation) {
 		this.preparation = preparation;
+	}
+	
+
+	public boolean isMorceau() {
+		return morceau;
+	}
+
+	public void setMorceau(boolean morceau) {
+		this.morceau = morceau;
+	}
+
+	public boolean isTranche() {
+		return tranche;
+	}
+
+	public void setTranche(boolean tranche) {
+		this.tranche = tranche;
 	}
 
 	@Override

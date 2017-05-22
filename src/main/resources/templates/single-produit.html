@@ -42,10 +42,10 @@
 				 <div class="from-ajout-panier" sec:authorize="hasRole('ROLE_USER')">
 				 <form  class="form-inline" th:action="@{/User/Commande/ajouterProduit}" method="post" th:object="${ligne}">
 				  <div class="form-group">
-				  				 	<select class="form-control">
+				  	<select class="form-control" name="choix_coupe" th:if="${produit.tranche OR  produit.morceau}">
 					  <option>En tranche ou en morceau</option>
-					  <option>En tranche</option>
-					  <option>En morceau</option>
+					  <option th:if="${produit.tranche}"  value="En tranche">En tranche</option>
+					  <option th:if="${produit.morceau}" value="En morceau">En morceau</option>
 					</select>
 				    <div class="input-group">
 				 	<input type="hidden" name="produit.id" class="form-control" th:value="${produit.id}" />

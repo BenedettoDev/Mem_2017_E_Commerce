@@ -23,6 +23,7 @@
 							<th>Produit</th>
 							<th>Quantité</th>
 							<th>Prix</th>
+							<th>Coupe</th>
 							<th>Supprimer</th>
 						</tr>
 					</thead>
@@ -32,6 +33,7 @@
 							<td class="col-md-1"
 								th:text="${p.quantite}+' '+ g"></td>
 							<td class="col-md-1" th:text="${p.prix}+' €'"></td>
+							<td th:text="${p.choix_coupe}"></td>
 							<td class="col-md-1"><a class="btn btn-sm btn-danger"
 								th:href="@{/User/Commande/SupprimerLigne(id=${p.produit.id})}">Supprimer</a></td>
 						</tr>
