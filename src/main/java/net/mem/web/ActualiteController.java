@@ -21,6 +21,13 @@ public class ActualiteController {
 	@Autowired
 	ArticleRepository articleRepository;
 	
+	/**
+	 * Permet de récupérer la liste des actualités et retourne les informations via le model
+	 * pour compléter la page html actualite  
+	 * 
+	 * @param model
+	 * @return nom de la page html
+	 */
 	@RequestMapping(value={"/Index","/"})
 	public String panelActualite(Model model) {
 		model.addAttribute("listActualite",articleRepository.findArticleVisible());

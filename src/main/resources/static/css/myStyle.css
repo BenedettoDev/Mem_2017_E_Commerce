@@ -144,18 +144,28 @@ header .container {
 	.container-detail {
 		margin: 150px auto;
 	}
+	.container-detail .container-detail-content {
+		font-size: 25px;
+		color: white;
+		padding: 20px;
+	}
 	.produit-list {
 		max-height: 120px;
 	}
 	#case-histoire {
 		background: url(../img/home/histoire.jpg) no-repeat center center;
 	}
+	
+	section.ban-titre {
+	height: 350px;
+	}
+	
 	#histoire {
 		background: url(../img/home/histoire.jpg) no-repeat center center;
 		background-size: cover;
 		background-position: center;
 		background-attachment: fixed;
-		height: 350px;
+		
 	}
 	#case-produits {
 		background: url(../img/home/produits.jpg) no-repeat center center;
@@ -237,23 +247,24 @@ header .container {
 		margin: 10px;
 	}
 	ul.menuAdmin li a, ul.menuUser li a {
-		display: table-cell;
-		vertical-align: bottom;
-		text-align: center;
-		font-size: 1.6em;
-		width: 200px;
-		height: 200px;
-		background-color: blue;
-		color: white;
-		margin: 10px;
-		text-transform: uppercase;
-		text-align: center;
-		padding: 10px;
+    display: table-cell;
+    vertical-align: bottom;
+    text-align: center;
+    font-size: 1.4em;
+    width: 200px;
+    height: 200px;
+    background-color: blue;
+    color: black;
+    margin: 10px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 10px;
 	}
 	ul.menuAdmin li a:hover, ul.menuUser li a:hover {
 		text-decoration: none;
-		background-color: #9d9d9d;
-		color: white;
+/* 		background-color: #9d9d9d; */
+/* 		color: white; */
+		border: 1px solid black;
 	}
 	.container-single-produit>img {
 		width: 2px;

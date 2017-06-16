@@ -3,8 +3,8 @@
 <head th:fragment="head">
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css"	href="../static/css/bootstrap/bootstrap.css"	th:href="@{/bootstrap/css/bootstrap.css}" />
-<link rel="stylesheet" type="text/css" href="../static/css/myStyle.css"
-	th:href="@{/css/myStyle.css}" />
+<link rel="stylesheet" type="text/css"	href="../static/css/dateTime.css"	th:href="@{/css/dateTime.css}" />
+<link rel="stylesheet" type="text/css" href="../static/css/myStyle.css" 	th:href="@{/css/myStyle.css}" />
 	<script src="https://use.fontawesome.com/5f52427035.js"></script>
 </head>
 <body>
@@ -50,20 +50,20 @@
 	
 	<div th:fragment="menuUtilisateur">
 			<ul class="menuUser">
-				<li><a th:href="@{/User/Panier}">Mon panier</a></li>
-				<li><a th:href="@{/User/Commande/Index}">Mes Commandes</a></li>
-				<li><a th:href="@{/User/Compte/Index}">Info sur mon compte</a></li>
+				<li><a th:style="'background:url(' + @{/img/user/logo_mon_panier.jpg} + ')  no-repeat right bottom;background-size: 200px auto;'" th:href="@{/User/Panier}">Mon panier</a></li>
+				<li><a th:style="'background:url(' + @{/img/user/logo_mes_commandes.jpg} + ')  no-repeat right bottom;background-size: 200px auto;'" th:href="@{/User/Commande/Index}">Mes Commandes</a></li>
+				<li><a th:style="'background:url(' + @{/img/user/logo_mon_compte.jpg} + ')  no-repeat right bottom;background-size: 200px auto;'" th:href="@{/User/Compte/Index}">Mon compte</a></li>
 			</ul>
 	</div>
 	
 	<div th:fragment="menuAdmin">
 		<ul class="menuAdmin">
-			<li><a th:href="@{/Admin/Produit/Index}">Produits</a></li>
-			<li><a class="align-middle" th:href="@{/Admin/Article/Index}">Articles</a></li>
-			<li><a class="align-middle" th:href="@{/Admin/Commande/Index}">Commandes</a></li>
-			<li><a class="align-middle" th:href="@{/Admin/Suggestion/Index}">Suggestions</a></li>
-			<li><a class="align-middle" th:href="@{/Admin/Preparation/Index}">Preparation</a></li>
-			<li><a class="align-middle" th:href="@{/Admin/Utilisateur/Index}">Utilisateurs</a></li>
+			<li><a th:style="'background:url(' + @{/img/admin/produits.jpg} + ')  no-repeat right bottom;background-size: 200px auto;'" th:href="@{/Admin/Produit/Index}">Produits</a></li>
+			<li><a class="align-middle" th:style="'background:url(' + @{/img/admin/articles.jpg} + ')  no-repeat right bottom;background-size: 200px auto;'" th:href="@{/Admin/Article/Index}">Articles</a></li>
+			<li><a class="align-middle" th:style="'background:url(' + @{/img/admin/logo_mes_commandes.jpg} + ')  no-repeat right bottom;background-size: 200px auto;'" th:href="@{/Admin/Commande/Index}">Commandes</a></li>
+			<li><a class="align-middle" th:style="'background:url(' + @{/img/admin/suggestion.jpg} + ')  no-repeat right bottom;background-size: 200px auto;'" th:href="@{/Admin/Suggestion/Index}">Suggestions</a></li>
+			<li><a class="align-middle" th:style="'background:url(' + @{/img/admin/preparation.jpg} + ')  no-repeat right bottom;background-size: 200px auto;'" th:href="@{/Admin/Preparation/Index}">Preparation</a></li>
+			<li><a class="align-middle"  th:style="'background:url(' + @{/img/admin/utilisateurs.jpg} + ')  no-repeat right bottom;background-size: 200px auto;'" th:href="@{/Admin/Utilisateur/Index}">Utilisateurs</a></li>
 		</ul>
 	</div>
 	

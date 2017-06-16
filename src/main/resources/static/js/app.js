@@ -5,7 +5,7 @@
  */
 
 $(function() {
-	$('.datetimepicker').datetimepicker();
+	
 	$(".logo-home").hide();
 	$(".logo-home").fadeTo(3000, 0.90);
 

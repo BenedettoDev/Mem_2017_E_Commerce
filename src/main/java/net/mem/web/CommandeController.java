@@ -12,6 +12,11 @@ import net.mem.dao.entities.Plateau;
 @RequestMapping(value="/Commande")
 public class CommandeController {
 
+	/**
+	 * Page principale de la commande
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value="/Index")
 	public String index(Model model){
 		model.addAttribute("page", "Commande");

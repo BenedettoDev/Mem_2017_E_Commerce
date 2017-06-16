@@ -58,6 +58,24 @@
 		</div>
 	</div>
 	<footer th:replace="template :: footer"></footer>
-
+	<script type="text/javascript">
+	 $(function () {
+         $('.datetimepicker').datetimepicker({
+        	  daysOfWeekDisabled: [0,1],
+        	 icons: {
+                 time: "fa fa-clock-o",
+                 date: "fa fa-calendar",
+                 up: "fa fa-arrow-up",
+                 down: "fa fa-arrow-down"
+             },
+          
+             disabledDates: [
+                 moment("12/25/2017"),
+                 new Date(2017, 11 - 1, 21),
+                 "11/22/2017 00:53"
+             ]
+         });
+     });
+	</script>
 </body>
 </html>
