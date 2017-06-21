@@ -1,15 +1,24 @@
 package net.mem.web.user;
 
 import java.security.Principal;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -43,6 +52,8 @@ public class UserCommandeController {
 
 	@Autowired
 	private ConfectionRepository confectionRepository;
+
+
 
 	@RequestMapping(value = "Index")
 	public String panelCommande(Model model, Principal principal) {
@@ -137,6 +148,7 @@ public class UserCommandeController {
 		Commande commande = new Commande(utilisateurRepository.findByUserName(principal.getName()));
 		commande.setEtat(Etat.EnAttente);
 		commande.setConfection(conf);
+		
 		commandeRepository.save(commande);
 		return commande;
 	}
@@ -149,7 +161,7 @@ public class UserCommandeController {
 
 	@RequestMapping(value = "CommandeAValider", method = RequestMethod.POST)
 	public String commandeAValider(Principal principal, Long id, @Valid Commande commande, BindingResult errors,
-			Model model) {
+			Model model) throws ParseException {
 		if (commande.getCommande_prevu_pour() == null) {
 			FieldError error = new FieldError("commande_prevu_pour", "commande_prevu_pour",
 					"Vous devez sélectionner une date");
@@ -167,9 +179,13 @@ public class UserCommandeController {
 			u.setAdresse(commande.getUtilisateur().getAdresse());
 			utilisateurRepository.save(u);
 		}
+		Date  d1 = commande.getCommande_prevu_pour();
+		System.out.println(d1.toString());
+		DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm");
 		
+		System.out.println(df.format(d1));
 		Commande c = commandeRepository.findOne(id);
-		c.setCommande_prevu_pour(commande.getCommande_prevu_pour());
+		c.setCommande_prevu_pour(d1);
 		c.setEtat(Etat.EnCours);
 		commandeRepository.save(c);
 		model.addAttribute("commandeEnregistree", true);

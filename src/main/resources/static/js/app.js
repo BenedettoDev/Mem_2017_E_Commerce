@@ -46,9 +46,20 @@ $(function() {
 		$("#table-article-produits-1").append('<input type="text" name="produit.id" readonly="readonly" class="form-control" value="'+ ligne+'"/>');
 	});
 	
+
+		
 	  $('.datetimepicker').datetimepicker({
-    	  daysOfWeekDisabled: [0,1],
+		  
+		
+		  daysOfWeekDisabled: [0,1],
+		  minDate: new Date() ,
     	  stepping: 30,
+    	  sideBySide:true,
+    	  dayViewHeaderFormat:'MM/YYYY',
+    	  format: 'MM/DD/YYYY HH:mm',
+    	  disabledHours: [0, 1, 2, 3, 4, 5, 6, 7, 8, 19, 20, 21, 22, 23, 24],
+    	  enabledHours: [9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
+    	  
     	 icons: {
              time: "fa fa-clock-o",
              date: "fa fa-calendar",
@@ -61,5 +72,6 @@ $(function() {
          ]
      });
 		
+	
 	
 });

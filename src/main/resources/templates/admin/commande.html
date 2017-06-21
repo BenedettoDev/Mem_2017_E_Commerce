@@ -33,7 +33,7 @@
 						<td th:text="${p.utilisateur.nom}+ ' ' + ${p.utilisateur.prenom}"></td>
 						<td th:text="${p.utilisateur.telephone}"></td>
 						
-						<td th:text="${#dates.format(p.commande_prevu_pour, 'dd-MMM-yyyy à h:m')}"></td>
+						<td th:text="${#dates.format(p.commande_prevu_pour, 'dd-MMM-yyyy à HH:mm')}"></td>
 						<td th:if="${p.confection != null}" th:text=" ${#strings.substring(p.confection.class,27,#strings.length(p.confection.class))}"></td>
 						<td th:if="${p.confection == null}">Simple</td>
 						<td>

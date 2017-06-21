@@ -26,7 +26,7 @@
 				<tbody>
 					<tr th:each="p:${commandesEnAttente}">
 						<td class="col-xs-1" th:text="${p.id}"></td>
-						<td th:text="${#dates.format(p.commande_prevu_pour, 'dd-MMM-yyyy à h:m')}"></td>
+						<td th:text="${#dates.format(p.commande_prevu_pour, 'dd-MMM-yyyy à HH:mm')}"></td>
 						<td th:if="${p.confection != null}" th:text=" ${#strings.substring(p.confection.class,27,#strings.length(p.confection.class))}"></td>
 						<td th:if="${p.confection == null}">Simple</td>
 						<td>
@@ -51,7 +51,7 @@
 				<tbody>
 					<tr th:each="p:${commandesTerminee}">
 						<td class="col-xs-1" th:text="${p.id}"></td>
-						<td th:text="${#dates.format(p.commande_prevu_pour, 'dd-MMM-yyyy à h:m')}"></td>
+						<td th:text="${#dates.format(p.commande_prevu_pour, 'dd-MMM-yyyy à HH:mm')}"></td>
 						<td th:if="${p.confection != null}" th:text=" ${#strings.substring(p.confection.class,27,#strings.length(p.confection.class))}"></td>
 						<td th:if="${p.confection == null}">Simple</td>
 						<td>

@@ -2,6 +2,7 @@ package net.mem.dao.entities;
 
 import java.io.Serializable;
 import java.text.DecimalFormat;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -16,6 +17,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 
@@ -41,7 +46,7 @@ public class Commande  implements Serializable {
 	private Date date_fin;
 	
 	@Column(updatable = true)
-	private Date commande_prevu_pour;
+	private Date  commande_prevu_pour;
 	
 	@ManyToOne
 	@JoinColumn(name="FKUTILISATEUR")
@@ -121,11 +126,11 @@ public class Commande  implements Serializable {
 		this.date_fin = date_fin;
 	}
 
-	public Date getCommande_prevu_pour() {
+	public Date  getCommande_prevu_pour() {
 		return commande_prevu_pour;
 	}
 
-	public void setCommande_prevu_pour(Date commande_prevu_pour) {
+	public void setCommande_prevu_pour(Date  commande_prevu_pour) {
 		this.commande_prevu_pour = commande_prevu_pour;
 	}
 
