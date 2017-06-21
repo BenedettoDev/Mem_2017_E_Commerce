@@ -30,7 +30,7 @@
 					<p>Ce(s) panier(s) sera/seront <strong th:if="${panier.identique}" >identique(s)</strong><strong th:unless="${panier.identique}" >différent(s)</strong> </p>
 				</div>
 				<div>Si toutes ces informations sont correctes. Veuillez svp
-					nous informer de la réception de votre commande et valider la
+					nous informer de la date de réception de votre commande et valider la
 					commande</div>
 
 				<form class="form-inline"
@@ -47,7 +47,7 @@
 							<span	class="text-danger" th:errors="*{utilisateur.adresse}"></span>
 						<input type="hidden" name="commande.id" th:value="${commande.id}" />
 						<label>La commande doit être réalisée pour le : </label>
- 						<input type='text' class="form-control datetimepicker" name="commande_prevu_pour"	id='datetimepicker1' />
+ 						<input type='text' class="form-control datetimepicker" name="commande_prevu_pour" data-date-format='DD/MM/YYYY h:mm a' 	id='datetimepicker1' />
 							 <span class="label label-danger" th:errors="*{commande_prevu_pour}"></span>
 					</div>
 					<button type="submit" class="btn btn-default">Confirmer ma commande</button>

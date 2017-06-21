@@ -15,7 +15,7 @@
 			<p>Aucune Commandes n'est prévues</p>
 		</div>
 		<div class="col-xs-12" th:if="${commandesSemaine != null}">
-		<h3>Commandes en cours</h3>
+		<h3>Commandes en Attente</h3>
 			<table class="table table-striped ">
 				<thead>
 					<tr>
@@ -34,7 +34,7 @@
 						<td th:text="${p.utilisateur.telephone}"></td>
 						
 						<td th:text="${#dates.format(p.commande_prevu_pour, 'dd-MMM-yyyy à h:m')}"></td>
-						<td th:if="${p.confection != null}" th:text=" ${#strings.substring(p.confection.class,23,#strings.length(p.confection.class))}"></td>
+						<td th:if="${p.confection != null}" th:text=" ${#strings.substring(p.confection.class,27,#strings.length(p.confection.class))}"></td>
 						<td th:if="${p.confection == null}">Simple</td>
 						<td>
 						<a class="btn btn-default" th:href="@{Visualiser(id=${p.id})}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>

@@ -48,6 +48,7 @@ $(function() {
 	
 	  $('.datetimepicker').datetimepicker({
     	  daysOfWeekDisabled: [0,1],
+    	  stepping: 30,
     	 icons: {
              time: "fa fa-clock-o",
              date: "fa fa-calendar",
