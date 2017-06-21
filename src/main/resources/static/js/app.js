@@ -42,12 +42,23 @@ $(function() {
 	
 	$("#table-article-produits-1 .ligne .id").on('click',function(event){
 		var ligne = $(this).text();
-//		$("#table-article-produits-1 input").attr("value",ligne);
 		$("#table-article-produits-1 table").hide();
 		$("#table-article-produits-1").append('<input type="text" name="produit.id" readonly="readonly" class="form-control" value="'+ ligne+'"/>');
 	});
 	
-
+	  $('.datetimepicker').datetimepicker({
+    	  daysOfWeekDisabled: [0,1],
+    	 icons: {
+             time: "fa fa-clock-o",
+             date: "fa fa-calendar",
+             up: "fa fa-arrow-up",
+             down: "fa fa-arrow-down"
+         },
+      
+         disabledDates: [
+             new Date()
+         ]
+     });
 		
 	
 });

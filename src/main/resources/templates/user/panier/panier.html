@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:fragment="head">
-<meta charset="utf-8" />
-<link rel="stylesheet" type="text/css"
-	href="../../static/css/bootstrap.min.css"
-	th:href="@{/bootstrap/css/bootstrap.css}" />
-<link rel="stylesheet" type="text/css"
-	href="../../static/css/myStyle.css" th:href="@{/css/myStyle.css}" />
-</head>
+<head th:replace="template :: head"></head>
 <body>
 	<header th:replace="template :: header"></header>
 	<div class="container container-panier">
@@ -56,7 +49,7 @@
 					<div class="container form-group">
 						
 								<label>Date souhaitée pour la réalisation de cette commande : </label>
-								 <input type='text' class="form-control" name="commande_prevu_pour"	id='datetimepicker' />
+								 <input type='text' class="form-control datetimepicker" name="commande_prevu_pour"	data-date-format='DD/MM/YYYY h:mm a' id='datetimepicker2' />
 								
 											</div>
 					 <button type="submit" class="btn btn-default">Confirmer ma commande</button>
@@ -67,9 +60,7 @@
 	<footer th:replace="template :: footer"></footer>
 
 	<script type="text/javascript">
-		jQuery(document).ready(function($) {
-			$('#datetimepicker').datetimepicker();
-		});
+	
 	</script>
 </body>
 </html>

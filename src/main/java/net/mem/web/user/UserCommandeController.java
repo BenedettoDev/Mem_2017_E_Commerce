@@ -172,7 +172,8 @@ public class UserCommandeController {
 		c.setCommande_prevu_pour(commande.getCommande_prevu_pour());
 		c.setEtat(Etat.EnCours);
 		commandeRepository.save(c);
-		return "redirect:/User/Commande/Index";
+		model.addAttribute("commandeEnregistree", true);
+		return panelCommande(model,principal);
 	}
 
 	@RequestMapping(value = "SupprimerLigne")

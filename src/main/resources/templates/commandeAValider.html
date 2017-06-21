@@ -46,36 +46,18 @@
 							<input type="text" th:field="*{utilisateur.adresse}" class="form-control" /> </p>
 							<span	class="text-danger" th:errors="*{utilisateur.adresse}"></span>
 						<input type="hidden" name="commande.id" th:value="${commande.id}" />
-						<label>La commande doit être réalisée pour le : </label> <input
-							type='text' class="form-control datetimepicker"
-							name="commande_prevu_pour" id='datetimepicker1' />
+						<label>La commande doit être réalisée pour le : </label>
+ 						<input type='text' class="form-control datetimepicker" name="commande_prevu_pour"	id='datetimepicker1' />
 							 <span class="label label-danger" th:errors="*{commande_prevu_pour}"></span>
 					</div>
-					<button type="submit" class="btn btn-default">Confirmer ma
-						commande</button>
+					<button type="submit" class="btn btn-default">Confirmer ma commande</button>
 				</form>
 			</div>
 		</div>
 	</div>
 	<footer th:replace="template :: footer"></footer>
 	<script type="text/javascript">
-	 $(function () {
-         $('.datetimepicker').datetimepicker({
-        	  daysOfWeekDisabled: [0,1],
-        	 icons: {
-                 time: "fa fa-clock-o",
-                 date: "fa fa-calendar",
-                 up: "fa fa-arrow-up",
-                 down: "fa fa-arrow-down"
-             },
-          
-             disabledDates: [
-                 moment("12/25/2017"),
-                 new Date(2017, 11 - 1, 21),
-                 "11/22/2017 00:53"
-             ]
-         });
-     });
+
 	</script>
 </body>
 </html>
