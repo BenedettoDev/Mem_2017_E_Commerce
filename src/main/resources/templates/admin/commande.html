@@ -7,7 +7,7 @@
 		<div th:replace="template :: adminNav"></div>
 		<h1>Commandes</h1>
 		<div class="col-xs-12" th:if="${commandesSemaine == null}">
-			<p>Aucune Commandes n'est pr�vues</p>
+			<p>Aucune Commandes n'est prévues</p>
 		</div>
 		<div class="col-xs-12" th:if="${commandesSemaine != null}">
 		<h3>Commandes en Attente</h3>
@@ -28,7 +28,7 @@
 						<td th:text="${p.utilisateur.nom}+ ' ' + ${p.utilisateur.prenom}"></td>
 						<td th:text="${p.utilisateur.telephone}"></td>
 						
-						<td th:text="${#dates.format(p.commande_prevu_pour, 'dd-MMM-yyyy � HH:mm')}"></td>
+						<td th:text="${#dates.format(p.commande_prevu_pour, 'dd-MMM-yyyy à HH:mm')}"></td>
 						<td th:if="${p.confection != null}" th:text=" ${#strings.substring(p.confection.class,27,#strings.length(p.confection.class))}"></td>
 						<td th:if="${p.confection == null}">Simple</td>
 						<td>

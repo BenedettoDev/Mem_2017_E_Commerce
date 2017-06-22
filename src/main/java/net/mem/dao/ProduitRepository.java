@@ -20,10 +20,10 @@ public interface ProduitRepository extends JpaRepository<Produit, Long> {
 	@Query("select e from Produit e,Categorie c where e.categorie=c.id and c.nom = :cat ")
 	public Page<Produit> chercherProduitsByCategory(@Param("cat")String categorie, Pageable pageable);
 	
-	@Query("Select e from Produit e ")
+	@Query(value="Select e.* from Produit e ORDER BY e.id DESC LIMIT 6", nativeQuery= true)
 	public List<Produit> derniersProduitsAjoute();
 	
-	@Query("SELECT e FROM Produit e WHERE e.suggestion=1")
+	@Query(value="Select e.* FROM Produit e WHERE e.suggestion=1 ORDER BY e.id DESC LIMIT 6", nativeQuery= true)
 	public List<Produit> produitsEnSuggestion();
 	
 	@Query("SELECT e FROM Produit e WHERE e.preparation=1")

@@ -251,6 +251,10 @@ header .container {
 		bottom: 20px;
 		right: 10px;
 	}
+	
+	.container-contact address {
+		margin-top: 20px;
+	}
 
 	/*******/
 	/***Admin****/
