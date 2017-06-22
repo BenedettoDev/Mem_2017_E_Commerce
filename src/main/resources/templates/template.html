@@ -33,14 +33,13 @@
 			
 				<ul class="nav navbar-nav navbar-right">
 			
-          			<li sec:authorize="hasRole('ROLE_USER')"><a href="/signin" th:href="@{/User/Index}">Mon Compte</a></li>
-					<li sec:authorize="hasRole('ROLE_USER')"><a href="/signin" th:href="@{/User/Panier}">Mon panier</a></li>
+          			<li sec:authorize="hasRole('ROLE_USER')"><a href="/signin" th:href="@{/User/Index}"><i class="icon_account" aria-hidden="true"></i><span>Mon Compte</span></a></li>
+					<li sec:authorize="hasRole('ROLE_USER')"><a href="/signin" th:href="@{/User/Panier}"><i class="icon_panier" aria-hidden="true"></i><span>Mon panier</span> </a></li>
 					<li sec:authorize="hasRole('ROLE_ADMIN')"><a href="/signin" th:href="@{/Admin/Index}">Admin	Panel</a></li>
 					<li sec:authorize="isAnonymous()" th:classappend="${page == 'Panel-admin' ? 'active' : ''}">
 						<a href="/signin" th:href="@{/Login}">Se connecter</a>
 					</li>
-					<li sec:authorize="isAuthenticated()"><a href="/logout"
-						th:href="@{/Logout}">Se déconnecter</a></li>
+					<li sec:authorize="isAuthenticated()"><a href="/logout"	th:href="@{/Logout}"><i class="icon_lock" aria-hidden="true"></i><span>Se déconnecter</span></a></li>
 				</ul>
 			</div>
 			<!--/.nav-collapse -->

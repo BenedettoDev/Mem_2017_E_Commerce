@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:fragment="head">
-<meta charset="utf-8" />
-<link rel="stylesheet" type="text/css"
-	href="../../static/css/bootstrap.min.css"
-	th:href="@{/css/bootstrap.min.css}" />
-<link rel="stylesheet" type="text/css" href="../../static/css/myStyle.css"
-	th:href="@{/css/myStyle.css}" />
-</head>
+<head th:replace="template :: head"></head>
 <body>
 	<header th:replace="template :: header"></header>
 	<div class="container container-panel-utilisateur">

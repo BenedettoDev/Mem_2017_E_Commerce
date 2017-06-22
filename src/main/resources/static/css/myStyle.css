@@ -55,6 +55,25 @@ header .container {
 	nav .container {
 		padding-top: 0;
 	}
+	
+	 .icon_lock::before {
+     font-family: "FontAwesome";
+    display: inline-block;
+    margin-right: 10px;
+    content: "\f023";
+	}
+	.icon_panier::before {
+	 font-family: "FontAwesome";
+    display: inline-block;
+    margin-right: 10px;
+    content: "\f291";
+	}
+	.icon_account::before {
+	 font-family: "FontAwesome";
+    display: inline-block;
+    margin-right: 10px;
+    content: "\f2be";
+	}
 	.cover-bg {
 		box-sizing: border-box;
 		height: 100vh;
@@ -452,7 +471,19 @@ header .container {
     content: "\f09a";
 }
 }
-
+@media all and (min-width: 768px) and (max-width: 1000px){
+	#navbar ul li a span{
+		display:none;
+	}
+	
+		.case div {
+		position: relative;
+		width: 180px;
+		height: 150px;
+		margin: 5px;
+	}
+	
+}
 @media all and (max-width: 768px) {
 	html, nav {
 		min-width: 350px;
@@ -495,7 +526,7 @@ header .container {
 	}
 	.case div {
 		position: relative;
-		width: 200px;
+		width: 47%;
 		height: 200px;
 		margin: 5px;
 	}

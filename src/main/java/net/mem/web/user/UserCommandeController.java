@@ -2,6 +2,7 @@ package net.mem.web.user;
 
 import java.security.Principal;
 import java.text.DateFormat;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -90,7 +91,6 @@ public class UserCommandeController {
 		commande.setTotal(commande.caltulMontantTotal());
 		commandeRepository.save(commande);
 
-		// return "redirect:/Produit/Index?id="+ligne.getProduit().getId();
 		return "redirect:/User/Panier";
 	}
 
@@ -107,7 +107,9 @@ public class UserCommandeController {
 			montant = (prix * quantite);
 
 		}
-		return montant;
+		DecimalFormat df = new DecimalFormat("########.00");
+		String str = df.format(montant); 
+		return Double.parseDouble(str.replace(',', '.')); 
 	}
 
 	@RequestMapping(value = "commanderPlateau", method = RequestMethod.POST)
