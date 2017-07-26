@@ -19,16 +19,16 @@ header .container {
 		background-color: rgba(232, 237, 245, 0.2);
 	}
 	footer {
-	background-color: #222;
-	color:white;
+		background-color: #222;
+		color: white;
 	}
 	footer .container .info {
 		text-align: center;
 		margin-bottom: 20px;
 	}
 	footer .container .copy {
-		position:relative;
-		width:180px;
+		position: relative;
+		width: 180px;
 		float: left;
 		margin: 0;
 	}
@@ -36,15 +36,13 @@ header .container {
 		text-align: center;
 	}
 	footer .container .condition {
-				position:relative;
-		width:180px;
+		position: relative;
+		width: 180px;
 		float: right;
 		margin: 0;
 	}
-	
-	
 	h1 {
-	margin :10px;
+		margin: 10px;
 	}
 	.navbar-header a {
 		padding-left: 30px;
@@ -55,24 +53,23 @@ header .container {
 	nav .container {
 		padding-top: 0;
 	}
-	
-	 .icon_lock::before {
-     font-family: "FontAwesome";
-    display: inline-block;
-    margin-right: 10px;
-    content: "\f023";
+	.icon_lock::before {
+		font-family: "FontAwesome";
+		display: inline-block;
+		margin-right: 10px;
+		content: "\f023";
 	}
 	.icon_panier::before {
-	 font-family: "FontAwesome";
-    display: inline-block;
-    margin-right: 10px;
-    content: "\f291";
+		font-family: "FontAwesome";
+		display: inline-block;
+		margin-right: 10px;
+		content: "\f291";
 	}
 	.icon_account::before {
-	 font-family: "FontAwesome";
-    display: inline-block;
-    margin-right: 10px;
-    content: "\f2be";
+		font-family: "FontAwesome";
+		display: inline-block;
+		margin-right: 10px;
+		content: "\f2be";
 	}
 	.cover-bg {
 		box-sizing: border-box;
@@ -169,22 +166,20 @@ header .container {
 		padding: 20px;
 	}
 	.produit-list {
-		max-height: 120px;
+		/* 		max-height: 120px; */
+		
 	}
 	#case-histoire {
 		background: url(../img/home/histoire.jpg) no-repeat center center;
 	}
-	
 	section.ban-titre {
-	height: 350px;
+		height: 350px;
 	}
-	
 	#histoire {
 		background: url(../img/home/histoire.jpg) no-repeat center center;
 		background-size: cover;
 		background-position: center;
 		background-attachment: fixed;
-		
 	}
 	#case-produits {
 		background: url(../img/home/produits.jpg) no-repeat center center;
@@ -218,20 +213,28 @@ header .container {
 	}
 	.container {
 		padding-top: 50px;
-	  
 	}
-	
 	.container-produits {
-	 margin-bottom: 20px;
-	 	min-height: 950px; 
-	 }
-	.container-commande,.container-actualite,.container-connexion,.container-compte-utilisateur,.container-panier,.container-commande-user,.container-compte-user,
-	.container-panel-produit-admin,.container-panel-commande-admin,.container-panel-lieu-admin,.container-panel-categorie-admin,.container-panel-admin,
-	.container-panel-article-admin,.container-form-article-admin,.container-panel-allergenes-admin,.container-panel-suggestion-admin,.container-panel-preparation,.container-panel-utilisateur,
-	.container-commande-ligne,.container-commande-a-valider,.container-single-produit {
-	 min-height: 834px; 
-	  margin-bottom: 20px;
-	 }
+		margin-bottom: 0px;
+		min-height: 950px;
+		background: url(../img/produits/bck_red.png) no-repeat center center;
+		background-size: cover;
+		background-position: center;
+		background-attachment: fixed;
+	}
+	.container-commande, .container-actualite, .container-connexion,
+		.container-compte-utilisateur, .container-panier,
+		.container-commande-user, .container-compte-user,
+		.container-panel-produit-admin, .container-panel-commande-admin,
+		.container-panel-lieu-admin, .container-panel-categorie-admin,
+		.container-panel-admin, .container-panel-article-admin,
+		.container-form-article-admin, .container-panel-allergenes-admin,
+		.container-panel-suggestion-admin, .container-panel-preparation,
+		.container-panel-utilisateur, .container-commande-ligne,
+		.container-commande-a-valider, .container-single-produit {
+		min-height: 834px;
+		margin-bottom: 20px;
+	}
 	.btn-categorie {
 		
 	}
@@ -239,7 +242,7 @@ header .container {
 		margin-top: 10px;
 	}
 	a.titre-liste-produit {
-		color: #a0a0a0;
+		color: #333;
 	}
 	a.titre-liste-produit:hover {
 		color: #656464;
@@ -251,7 +254,6 @@ header .container {
 		bottom: 20px;
 		right: 10px;
 	}
-	
 	.container-contact address {
 		margin-top: 20px;
 	}
@@ -270,23 +272,23 @@ header .container {
 		margin: 10px;
 	}
 	ul.menuAdmin li a, ul.menuUser li a {
-    display: table-cell;
-    vertical-align: bottom;
-    text-align: center;
-    font-size: 1.4em;
-    width: 200px;
-    height: 200px;
-    background-color: blue;
-    color: black;
-    margin: 10px;
-    text-transform: uppercase;
-    text-align: center;
-    padding: 10px;
+		display: table-cell;
+		vertical-align: bottom;
+		text-align: center;
+		font-size: 1.4em;
+		width: 200px;
+		height: 200px;
+		background-color: blue;
+		color: black;
+		margin: 10px;
+		text-transform: uppercase;
+		text-align: center;
+		padding: 10px;
 	}
 	ul.menuAdmin li a:hover, ul.menuUser li a:hover {
 		text-decoration: none;
-/* 		background-color: #9d9d9d; */
-/* 		color: white; */
+		/* 		background-color: #9d9d9d; */
+		/* 		color: white; */
 		border: 1px solid black;
 	}
 	.container-single-produit>img {
@@ -299,18 +301,15 @@ header .container {
 		padding: 10px;
 		margin: 0px;
 	}
-	.col-text-produit div.single-page-titre  {
-	background-color: rgba(234, 0, 0, 0.34);
+	.col-text-produit div.single-page-titre {
+		background-color: rgba(234, 0, 0, 0.34);
 		margin: 0;
 		padding-bottom: 15px;
-		
 	}
-	.col-text-produit h1.single-page-titre  {
+	.col-text-produit h1.single-page-titre {
 		margin: 0;
 		padding-left: 15px;
-		
 	}
-	
 	.col-text-produit .description {
 		background-color: rgba(255, 106, 0, 0.2);
 		min-height: 200px;
@@ -325,15 +324,15 @@ header .container {
 		padding: 10px;
 	}
 	.col-text-produit .allergene ul {
-		text-decoration: none;	
-		overflow: hidden;	
+		text-decoration: none;
+		overflow: hidden;
 		margin: 0;
 		padding: 0;
 	}
 	.col-text-produit .allergene ul li {
 		list-style-type: none;
 		float: left;
-		margin-right: 10px; 		
+		margin-right: 10px;
 	}
 	.col-text-produit .detail-produit {
 		background-color: rgba(255, 0, 0, 0.2);
@@ -361,23 +360,29 @@ header .container {
 
 	/* 	PAGE PRODUIT */
 	.liste-produit-page-panel-categorie {
-	margin-bottom:20px;
-	padding: 20px 0;
-	background-color: white;
+		margin-bottom: 20px;
+		padding: 20px 0;
+		background-color: rgba(245, 245, 245, 0.08);
 	}
-	
 	.form-motCle {
 		margin-top: 20px;
 	}
-	.produits {}
-	
+	.produits {
+		
+	}
+	.produits button {
+		background-color: #8d2626;
+		border-color: #8d2626;
+		color: white;
+	}
 	.container-produits h1 {
 		margin: 10px;
+		color: #f7f7f7;
 	}
-	
 	.container-produits .produits h4 {
 		margin-bottom: 0;
 		margin-left: 10px;
+		color: #f7f7f7;
 	}
 	.container-produits .produits hr {
 		margin-top: 5px;
@@ -389,13 +394,37 @@ header .container {
 	.container-produits .produits .liste-produit-panel-categorie {
 		margin-bottom: 10px;
 	}
+	.container-produits .produits .liste-produit-panel-categorie .well,
+		.liste-produits .nav-pills .active a {
+		margin-bottom: 10px;
+		background-color: rgba(245, 245, 245, 0.08);
+		color: white;
+	}
+	.liste-produits .nav-pills .active a:hover {
+		background-color: #8d2626;
+		border-color: #8d2626;
+		color: white;
+	}
+		.liste-produits .nav-pills .active a:focus {
+		background-color: #8d2626;
+		border-color: #8d2626;
+		color: white;
+	}
+	.container-produits .produits .liste-produit-panel-categorie .well a {
+		color: white;
+		text-decoration: none;
+	}
 	.container-produits .produits .liste-produits-panel {
-		background-color: white;
-		padding-bottom:10px; 
+		/* 		background-color: white; */
+		background-color: rgba(245, 245, 245, 0.08);
+		padding-bottom: 10px;
+	}
+	.container-produits .produits .thumbnail {
+		display: block;
+		padding: 0px;
 	}
 
 	/* 	PAGE COMMANDE */
-
 	.row-commande ul {
 		text-decoration: none;
 	}
@@ -413,7 +442,7 @@ header .container {
 		font-size: 1.6em;
 		width: 200px;
 		height: 200px;
-		background-position:50% 50%;
+		background-position: 50% 50%;
 		color: white;
 		margin: 10px;
 		text-transform: uppercase;
@@ -425,20 +454,19 @@ header .container {
 		color: white;
 	}
 	.row-commande .aligner {
-	  display: flex;
-  align-items: center;
-  justify-content: center;
-  }
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
 	.row-commande h2 {
 		margin: 10px;
 	}
 	.row-contact iframe {
 		margin-top: 20px;
 	}
-	
 	.formulaire-confection {
-		margin-top:40px;
-		background-color: rgba(255,255,255,0.5);
+		margin-top: 40px;
+		background-color: rgba(255, 255, 255, 0.5);
 	}
 	/* 	Page Actualite */
 	.container-actualite {
@@ -451,7 +479,6 @@ header .container {
 	.container-actualite ul li {
 		list-style-type: none;
 	}
-	
 	#table-article-produits-1 {
 		display: none;
 	}
@@ -461,33 +488,33 @@ header .container {
 		#form_utilisateur .form_btn_annuler {
 		display: none;
 	}
-/* 	Formulaire produit */
+	/* 	Formulaire produit */
 	.checkbox-allergenes div {
-	 width: 125px;
-	 float:left;
+		width: 125px;
+		float: left;
 	}
-	
-/* 	CONTACT */
- .block-heading-facebook::before {
-     font-family: "FontAwesome";
-    display: inline-block;
-    margin-right: 5px;
-    content: "\f09a";
-}
-}
-@media all and (min-width: 768px) and (max-width: 1000px){
-	#navbar ul li a span{
-		display:none;
+
+	/* 	CONTACT */
+	.block-heading-facebook::before {
+		font-family: "FontAwesome";
+		display: inline-block;
+		margin-right: 5px;
+		content: "\f09a";
 	}
-	
-		.case div {
+}
+
+@media all and (min-width: 768px) and (max-width: 1000px) {
+	#navbar ul li a span {
+		display: none;
+	}
+	.case div {
 		position: relative;
 		width: 180px;
 		height: 150px;
 		margin: 5px;
 	}
-	
 }
+
 @media all and (max-width: 768px) {
 	html, nav {
 		min-width: 350px;
